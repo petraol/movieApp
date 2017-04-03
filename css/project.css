@@ -1,0 +1,60 @@
+html {
+    background: url(http://i.imgur.com/L3G2Af2.jpg) center center fixed transparent;
+    -webkit-background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size: cover;
+    background-size:cover;
+    background-position:absolute;
+    background-repeat: repeat-y;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0);
+    background-size:cover;
+    font-family: 'Avenir Next';
+    color: white;
+}
+
+
+h1 {
+    font-size: 100pt;
+}
+
+h2 {
+    font-size: 50pt;
+}
+
+input {
+    color:black;
+}
+
+#profilepic {
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.vertical-center {
+  min-height: 50%;
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+/* visited link */
+a:visited {
+    color: white;
+}
+/* mouse over link */
+a:hover {
+    color: #ad1614;
+}
+/* selected link */
+a:active {
+    color: #ad1614;
+}
