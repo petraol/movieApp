@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var movieApp = angular.module('movieApp', ['ngRoute','ngResource']);
+var movieApp = angular.module('movieApp', ['ngRoute','ngResource','ngCookies']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -38,7 +38,8 @@ movieApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/homepage', {
-        templateUrl: 'partials/homepage.html'
+        templateUrl: 'partials/homepage.html',
+        controller: 'homepageCtrl'
       }).
       when('/friends', {
         templateUrl: 'partials/friends.html',
@@ -54,7 +55,7 @@ movieApp.config(['$routeProvider',
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
-        redirectTo: '/home'
+        redirectTo: '/homepage'
       });
   }]);
 
