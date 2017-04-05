@@ -2,6 +2,7 @@ movieApp.factory('Movie',function ($resource, $cookies) {
 
 
 this.movies = [];
+var currentMovie = {};
 
 // Hämta alla filmer
 this.getAllMovies = function() {
@@ -17,6 +18,8 @@ this.getMoviePosters = function() {
 this.searchMovie = function() {
 
 }
+
+
 
 // Lägg till film i lista
 this.addMovieToList = function(id) {
