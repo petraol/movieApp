@@ -48,24 +48,26 @@ this.removeMovieFromList = function(id) {
 }
 
 // Betygsätt film
-this.MovieSearch = function(query, cb) {
+// this.MovieSearch = function(query, cb) {
 
-    var api_key = '573bb1edb1c5674d09c84f39d01dcf69';
+//     var api_key = '573bb1edb1c5674d09c84f39d01dcf69';
 
-    $(document).ready(function(){
-      $.ajax({
-        url: 'http://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&query=' + query,
-        dataType: 'jsonp',
-        jsonpCallback: 'testing'
-      }).error(function() {
-        console.log('error')
-      }).done(function(response) {
-          cb(response.results);
-      });
-    });
+//     $(document).ready(function(){
+//       $.ajax({
+//         url: 'http://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&query=' + query,
+//         dataType: 'jsonp',
+//         jsonpCallback: 'testing'
+//       }).error(function() {
+//         console.log('error')
+//       }).done(function(response) {
+//           cb(response.results);
+//       });
+//     });
   
 
-}
+// }
+
+this.MovieSearch = $resource('http://api.themoviedb.org/3/search/movie?api_key=573bb1edb1c5674d09c84f39d01dcf69&query=:query');
 
 //this.MovieSearch = $resource('https://api.themoviedb.org/3/search/movie?api_key=573bb1edb1c5674d09c84f39d01dcf69&query=',{},{
 //  get: {}
