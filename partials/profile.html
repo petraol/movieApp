@@ -1,5 +1,12 @@
 <!--PROFILE-->
 
 <div class="container-fluid vertical-center" id="profile">
-<div class="col-sm-6" style="text-align: center; font-size: 15pt;"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15128952_10207573719443039_6551904099240725029_o.jpg?oh=ba077902a4ab5a8b34365a4370102bc6&oe=596A1CA6" id="profilepic" style="height:300px; width:300px; display:block; margin:auto;"></br><h3>Anton Martinsson</h3></br><b>Favoritsnacks:</b> Popcorn</br><b>Gillar:</b> </div>
-<div class="col-sm-6" style="text-align: left; font-size: 20pt; margin:auto;">Sök efter filmer: <form><input type="text" ng-model="movieQuery"> <a ng-click="search(movieQuery)" type="button" class="btn btn-primary">Sök filmer</a></form></br>Sök användare: <form><input type="text" ng-model="userSearch"> <a ng-model="query" ng-click="search(query)" type="button" class="btn btn-primary">Sök användare</a></div></form>
+<div class="col-sm-6" style="text-align: center; font-size: 15pt;"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15128952_10207573719443039_6551904099240725029_o.jpg?oh=ba077902a4ab5a8b34365a4370102bc6&oe=596A1CA6" id="profilepic" style="height:300px; width:300px; display:block; margin:auto;"></br><h3>Anton Martinsson</h3></br><b>Favoritsnacks:</b> Popcorn</br><b>Gillar:</b></div>
+
+<ng-include src="'partials/movieSearch.html'" ng-controller="movieSearchCtrl"></ng-include>
+
+</div>
+
+<!--<div class="col-sm-6" style="text-align: left; font-size: 20pt; margin:auto;">Sök efter filmer: <form><input type="text" ng-model="movieQuery"> <a href="#!/movieSearch" ng-click="search(movieQuery)" type="button" class="btn btn-primary">Sök filmer
+
+</a></form></br>Sök användare: <form><input type="text" ng-model="userSearch"> <a ng-model="query" ng-click="search(query)" type="button" class="btn btn-primary">Sök användare</a></div></form>-->

@@ -45,10 +45,14 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/friends.html',
         controller: 'friendsCtrl'
       }).
-      //when('/dish/:dishId', {
-      //  templateUrl: 'partials/dish.html',
-      //  controller: 'DishCtrl'
-      //}).
+      when('/movieSearch', {
+        templateUrl: 'partials/movieSearch.html',
+        controller: 'movieSearchCtrl'
+      }).
+      when('/movieSearchResults', {
+        templateUrl: 'partials/movieSearchResults.html',
+        controller: 'movieSearchCtrl'
+      }).
       when('/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'profileCtrl'
