@@ -1,3 +1,8 @@
-hej jag heter olivia
-och jag heter karolin
-hej petra och hej Anton
+Git recept:
+
+git pull (ALLTID det första man gör innan man ändrar en fil!!!)
+git add ..
+git commit -m ””
+git pull
+(git mergetool) om något fel
+git push origin master
