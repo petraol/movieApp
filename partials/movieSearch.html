@@ -1,9 +1,11 @@
 <div class="container">
 
-<div class="col-sm-12" style="text-align: left; font-size: 20pt; margin:20px;">
-Sök efter filmer: 
-<form><input type="text" ng-model="movieQuery"> 
-<a ng-href="#!/movieInfo" ng-click="search(movieQuery)" type="button" class="btn btn-primary">
-Sök filmer</a>
-</form>
-</div>
+<div class="col-sm-5" style="margin-top: 50px;"><ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include></div>
+
+<div class="col-sm-7" style="text-align: left; font-size: 20pt; margin-top: 50px;"> 
+	<form id="search-form">
+	<input type="text" name="search" id="round" ng-model="movieQuery" placeholder="Sök filmer..."/> <input ng-click="search(movieQuery)" type="submit" name="search" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437" value="Sök"/>
+	</form>
+	<div style="margin-top:50px" ng-repeat="movie in searchResults" class="col-sm-4" style="margin-bottom:50px;"><a ng-href="#!/movieInfo/{{movie.id}}"><img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px"></br><h3 style="text-align: center;">{{movie.title}}</h3></a></div>
+	</div>
+	</div>

@@ -3,6 +3,7 @@ movieApp.factory('Movie',function ($resource, $cookies) {
 
 this.movies = [];
 var currentMovie = {};
+var currentSearch = "";
 
 // Hämta alla filmer
 this.getAllMovies = function() {
