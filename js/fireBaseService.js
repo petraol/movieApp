@@ -1,31 +1,16 @@
-(function () {
+// Get a reference to the database service
+var database = firebase.database();
 
-	 var config = {
-	        apiKey: "AIzaSyC2IqIQPw56-1VIJ8F5KqgzG8NdEY1W7BY",
-	        authDomain: "movieapp-b5887.firebaseapp.com",
-	        databaseURL: "https://movieapp-b5887.firebaseio.com",
-	        projectId: "movieapp-b5887",
-	        storageBucket: "movieapp-b5887.appspot.com",
-	        messagingSenderId: "610446569148"
-	      };
-	      firebase.initializeApp(config);
+var messageRef = new Firebase('https://movieapp-b5887.firebaseio.com/');
+var userId = 0;
 
-	      // Get elements 
-	      var preObject = document.getElementById('users');
+function writeUserData(userId, name, sanck, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    snack: snack,
+    profile_picture : imageUrl
+  });
+}
 
-	      // Create references 
-	      var dbRefObject = firebase.database.database().ref().child('users');
 
-	      // Sync object changes
-	      // snap: status snap-shot, also returns the key-name were to iterates children or not 
-	      // Use .val() to get the real value as well 
-	      dbRefObject.on('value', snap => console.log(snap.val()))
-
-}());	 
-
- 		//dbRefObject.on('value', snap => {
-			//preObject.innerText = JSON.stringify(snap.val(), null, 3);
-
-		//});
-
-})
+writeUserData(0, "Anton", "Popcorn", "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15128952_10207573719443039_6551904099240725029_o.jpg?oh=ba077902a4ab5a8b34365a4370102bc6&oe=596A1CA6")
