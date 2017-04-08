@@ -29,4 +29,4 @@ function writeUserData(userId, name, snack, imageUrl) {
   });
 }
 
-w'(0, "Anton", "Popcorn", "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15128952_10207573719443039_6551904099240725029_o.jpg?oh=ba077902a4ab5a8b34365a4370102bc6&oe=596A1CA6")
+writeUserData(0, "Anton", "Popcorn", "https://scontent-arn2-1.xx.fbcdn.net/v/t31.0-8/15128952_10207573719443039_6551904099240725029_o.jpg?oh=ba077902a4ab5a8b34365a4370102bc6&oe=596A1CA6");
