@@ -1,6 +1,6 @@
 // Get a reference to the database service
 
-var movieBase = new Firebase('https://movieapp-b5887.firebaseio.com/');
+var movieBase = new firebase('https://movieapp-b5887.firebaseio.com/');
 var userId = 0;
 
 //function writeUserData(userId, name, sanck, imageUrl) {
