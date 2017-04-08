@@ -10,7 +10,7 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies) {
 	  			return snapshot.val().profile_picture;
 	  		}
 	  		$scope.snack = function() {
-	  			return  snapshot.val().snack;
+	  			return snapshot.val().snack;
 	  		}
 	  
 		});

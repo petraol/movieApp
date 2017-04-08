@@ -7,6 +7,6 @@
 	<input type="text" name="search" id="round" ng-model="movieQuery" placeholder="Sök filmer..."/> <input ng-click="search(movieQuery)" type="submit" name="search" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437" value="Sök"/>
 	</form>
 	<div style="margin-top:50px" ng-repeat="movie in searchResults" class="col-sm-4" style="margin-bottom:50px;"><a ng-href="#!/movieInfo/{{movie.id}}">
-	<!--img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px"--></br><h3 style="text-align: center;">{{movie.title}}</h3></a></div>
+	<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px"--></br><h3 style="text-align: center;">{{movie.title}}</h3></a></div>
 	</div>
 	</div>

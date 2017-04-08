@@ -28,11 +28,19 @@ input {
     color:black;
 }
 
+div {
+    padding: 5px;
+}
+
 #profilepic {
     border-radius: 50%;
     border-style: solid;
     border-color: white;
     border-width: 3px;
+}
+
+#movieInfo {
+
 }
 
 .vertical-center {
