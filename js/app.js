@@ -41,6 +41,14 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/homepage.html',
         controller: 'homepageCtrl'
       }).
+      when('/createAccount', {
+        templateUrl: 'partials/createaccount.html',
+        controller: 'createaccountCtrl'
+      }).
+      when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'loginCtrl'
+      }).
       when('/friends', {
         templateUrl: 'partials/friends.html',
         controller: 'friendsCtrl'

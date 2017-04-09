@@ -1,0 +1,23 @@
+<!-- creata a new account page -->
+
+<div class="container" id="createnewaccount">
+	<div class="col-sm-12">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+			<form>
+			  Name:<br>
+			  <input ng-model="name" type="text" name="name" value="">
+			  <br>
+			  Favorite snack:<br>
+			  <input ng-model="snack" type="text" name="snack" value="">
+			  <br>
+			  Url to profilepicture:<br>
+			  <input ng-model="image" type="text" name="imageUrl" value="">
+			  <br>
+			</form> 
+			</br></br></br>
+			<a ng-click="create(name, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
+	</div>
+	<div class="col-sm-4"></div>
+	</div>
+</div>

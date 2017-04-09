@@ -4,6 +4,7 @@ movieApp.factory('Movie',function ($resource, $cookies) {
 this.movies = [];
 var currentMovie = {};
 var currentSearch = "";
+this.user = "1";
 
 // Hämta alla filmer
 this.getAllMovies = function() {
@@ -20,7 +21,9 @@ this.searchMovie = function() {
 
 }
 
-
+// this.createNewUser = function(id, name, snack, imageUrl) {
+// 	$resource.writeUserData(id, name, snack, imageUrl);
+// }
 
 // Lägg till film i lista
 this.addMovieToList = function(id) {
