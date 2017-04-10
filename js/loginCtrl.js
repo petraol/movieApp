@@ -1,15 +1,15 @@
-movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location) {
+movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$window) {
 
 	$scope.login = function(username, password) {
 		return firebase.database().ref('/users/' + username).on('value', function(snapshot) {
-		  	
-		  	console.log(snapshot.val().password);
-		  	console.log(password);
+
 		  	if (snapshot.val().password === password) {
-		  		$location.url('#!/movieSearch')
+		  		Movie.currentUser = username;
+		  		console.log("Passwords match");
+		  		$window.location.assign('#!/movieSearch');
 		  	}
 		  	else {
-		  		return False;
+		  		console.log("Fel lösenord!")
 		  	}
 
 		});
