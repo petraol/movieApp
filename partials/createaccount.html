@@ -7,11 +7,11 @@
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 			<form style="text-align: center;">
+			Your Name: <br>
+			  <input ng-model="realname" type="text" name="realname" value="">
+			  <br></br>
 			  Desired Username:<br>
 			  <input ng-model="username" type="text" name="username" value="">
-			  <br></br>
-			  Your Name: <br>
-			  <input ng-model="name" type="text" name="name" value="">
 			  <br></br>
 			  Password:<br>
 			  <input ng-model="password" type="text" name="password" value="">
@@ -24,7 +24,7 @@
 			  <br>
 			</form> 
 			</br></br></br>
-			<a ng-click="create(username, name, password, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
+			<a ng-click="create(username, realname, password, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
 	</div>
 	<div class="col-sm-4"></div>
 	</div>

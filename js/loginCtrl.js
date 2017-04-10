@@ -1,15 +1,19 @@
 movieApp.controller('loginCtrl', function ($scope,Movie,$cookies) {
 
-	function writeUserData(userId, name, password, snack, imageUrl) {
-	  firebase.database().ref('users/' + username).set({
-	    password: password,
-	    snack: snack,
-	    profile_picture : imageUrl
-	  });
-	}
+	$scope.login = function(username, password) {
+		return firebase.database().ref('/users/' + username).on('value', function(snapshot) {
+		  	
+		  	console.log(snapshot.val().password);
+		  	console.log(password);
+		  	if (snapshot.val().password === password) {
+		  		return True;
+		  	}
+		  	else {
+		  		return False;
+		  	}
 
-	$scope.login = function(id) {
-		Movie.user = id;
+		});
+		Movie.currentuser = username;
 	}
 });
 
