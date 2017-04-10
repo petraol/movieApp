@@ -1,4 +1,4 @@
-movieApp.controller('createaccountCtrl', function ($scope,$routeParams,$cookies) {
+movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies) {
 
 	$scope.create = function(username, password, snack, imageUrl) {
 		Movie.currentUser = username;
