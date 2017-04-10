@@ -21,9 +21,10 @@ var database = firebase.database();
  // });
 //}
 
-function writeUserData(userId, name, snack, imageUrl) {
+function writeUserData(userId, name, password, snack, imageUrl) {
   firebase.database().ref('users/' + userId).set({
     username: name,
+    password: password,
     snack: snack,
     profile_picture : imageUrl
   });
