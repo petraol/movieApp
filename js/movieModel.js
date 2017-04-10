@@ -4,8 +4,7 @@ movieApp.factory('Movie',function ($resource, $cookies) {
 this.movies = [];
 var currentMovie = {};
 var currentSearch = "";
-this.user = "1";
-this.userIdList = [];
+var currentUser = "";
 
 // Hämta alla filmer
 this.getAllMovies = function() {
