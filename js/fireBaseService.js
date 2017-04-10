@@ -12,7 +12,3 @@ var config = {
 
   // Get a reference to the database service
 var database = firebase.database();
-
-firebase.database().ref().set({
-	movieLists : {"Anton" : {}}
-})
