@@ -5,6 +5,7 @@ this.movies = [];
 var currentMovie = {};
 var currentSearch = "";
 this.user = "1";
+this.userIdList = [];
 
 // Hämta alla filmer
 this.getAllMovies = function() {
