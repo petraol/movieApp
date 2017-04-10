@@ -1,23 +1,24 @@
 <!-- creata a new account page -->
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 </div>
-<div class="container" id="createnewaccount">
+
+<div class="container vertical-center" id="createnewaccount">
 	<div class="col-sm-12">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
-			<form>
-			  Name:<br>
-			  <input ng-model="name" type="text" name="name" value="">
-			  <br>
+			<form style="text-align: center;">
+			  Desired Username:<br>
+			  <input ng-model="username" type="text" name="username" value="">
+			  <br></br>
 			  Favorite snack:<br>
 			  <input ng-model="snack" type="text" name="snack" value="">
-			  <br>
-			  Url to profilepicture:<br>
+			  <br></br>
+			  Url to Profile Picture:<br>
 			  <input ng-model="image" type="text" name="imageUrl" value="">
 			  <br>
 			</form> 
 			</br></br></br>
-			<a ng-click="create(name, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
+			<a ng-click="create(username, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
 	</div>
 	<div class="col-sm-4"></div>
 	</div>
