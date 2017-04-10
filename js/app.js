@@ -65,6 +65,10 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/movieInfo.html',
         controller: 'movieInfoCtrl'
       }).
+      when('/header', {
+        templateUrl: 'partials/header.html',
+        controller: 'headerCtrl'
+      }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/homepage'
