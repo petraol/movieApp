@@ -5,4 +5,4 @@ git add ..
 git commit -m ””
 git pull
 (git mergetool) om något fel
-git push origin master
+git push origin master 
