@@ -1,4 +1,4 @@
-movieApp.controller('loginCtrl', function ($scope,Movie,$cookies) {
+movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location) {
 
 	$scope.login = function(username, password) {
 		return firebase.database().ref('/users/' + username).on('value', function(snapshot) {
@@ -6,7 +6,7 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies) {
 		  	console.log(snapshot.val().password);
 		  	console.log(password);
 		  	if (snapshot.val().password === password) {
-		  		return True;
+		  		$location.url('#!/movieSearch')
 		  	}
 		  	else {
 		  		return False;
