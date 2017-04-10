@@ -1,0 +1,11 @@
+<!-- Movielist -->
+
+<div class="container">
+
+<div class="col-sm-5" style="margin-top: 50px;"><ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include></div>
+
+<div class="col-sm-7" style="text-align: left; font-size: 20pt; margin-top: 50px;"> 
+	<div style="margin-top:50px" ng-repeat="movie in searchResults" class="col-sm-4" style="margin-bottom:50px;">
+		<h3 style="text-align: center;">{{movie.title}}</h3>
+	</div>
+</div>
