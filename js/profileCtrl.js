@@ -1,12 +1,12 @@
 movieApp.controller('profileCtrl', function ($scope,Movie,$cookies) {
 	//var userId = firebase.auth().currentUser.uid;
-		var username = Movie.currentUser;
-		firebase.database().ref('/users/' + username).on('value', function(snapshot) {
+		var userId = Movie.user;
+		return firebase.database().ref('/users/' + userId).on('value', function(snapshot) {
+			console.log("skit", snapshot.val());
 
-	  		$scope.$evalAsync(function() {
-
+	  		$scope.$apply( function(){
 	  			$scope.name = function() {
-		  			return snapshot.val().realname;
+		  			return snapshot.val().username;
 		  		}
 		  		$scope.image = function() {
 		  			console.log("bilden", snapshot.val().profile_picture)
