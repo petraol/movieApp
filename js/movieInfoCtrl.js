@@ -1,8 +1,7 @@
 movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookies) {
 
 	$scope.movieId = Number($routeParams.movieId);
-	//$scope.currentUser = Movie.currentUser;
-	$scope.currentUser = "Anton";
+	$scope.currentUser = Movie.currentUser;
 
 	for (movie in Movie.currentSearch) {
 		//console.log(Movie.currentSearch[movie].id);
@@ -24,6 +23,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 	}
 
 	$scope.add = function() {
+		console.log('added movie to database')
 		firebase.database().ref('movieLists/' + $scope.currentUser + "/movie").push().set({
 			movie: $scope.movieId
 		})
