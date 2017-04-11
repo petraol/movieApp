@@ -61,6 +61,10 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/movieSearch.html',
         controller: 'movieSearchCtrl'
       }).
+      when('/editprofile', {
+        templateUrl: 'partials/editprofile.html',
+        controller: 'editprofileCtrl'
+      }).
       when('/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'profileCtrl'
