@@ -13,7 +13,8 @@ this.setCurrentUser = function(currentUser) {
 
 // Hämta filmomslag
 this.getCurrentUser = function() {
-	$cookies.get("currentUser");
+	var currentUser = $cookies.get("currentUser");
+	return currentUser;
 }
 
 this.removeCurrentUser = function() {
