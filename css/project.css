@@ -52,7 +52,7 @@ div {
 
 #round {
     width: 60%;
-    border-radius: 15px;
+    border-radius: 5px;
     border: 1px #000 solid;
     padding: 5px 5px 5px 25px;
 }
@@ -81,8 +81,6 @@ a:active {
 }
 
 .btn:hover {
-    background-color: black;
-    opacity: 0.6;
     color: white;
     font-size: 16px;
     border: none;
