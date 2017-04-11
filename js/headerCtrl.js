@@ -6,6 +6,8 @@ movieApp.controller('headerCtrl', function ($scope,Movie,$cookies) {
 		console.log(Movie.getCurrentUser());
 	}
 
+	$scope.name = Movie.getCurrentUser();
+
 	$scope.myFunction = function() {
 	    document.getElementById("myDropdown").classList.toggle("show");
 	}

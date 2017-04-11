@@ -11,7 +11,7 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 		  		$window.location.assign('#!/movieSearch');
 		  	}
 		  	else {
-		  		$("#lol").show();
+		  		$("#loginerror").show();
 		  		console.log("Fel lösenord!")
 		  	}
 
