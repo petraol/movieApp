@@ -77,6 +77,8 @@ this.MovieSearch = $resource('http://api.themoviedb.org/3/search/movie?api_key=5
 //  get: {}
 //});
 
+this.getMovie = $resource('https://api.themoviedb.org/3/movie/:id?api_key=573bb1edb1c5674d09c84f39d01dcf69&language=en-US')
+
 return this;
 
 });
