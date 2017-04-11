@@ -1,13 +1,17 @@
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
-	<div class="container" id="friends"></br>
-  <div class="col-sm-12"><h2 style="text-align: center">YOUR FRIENDS</h2></div>
-  <div class="col-sm-12">
-	<div class="col-sm-6"><img ng-src="{{image()}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto; "></br></div>
-	<div class="col-sm-6" alaign="right">
-    <a href=""><h3>{{name()}}</h3></a>
-    <b>Filmsnacks:</b>{{snack()}} </br>
-    <b>Gillar: </b>
-  </div>
+
+<div class="container" id="friends"></br>
+  	<div class="col-sm-12"><h2 style="text-align: center">YOUR FRIENDS</h2></div>
+  	<div class="col-sm-12" ng-repeat="image in imagelist">
+		<div class="col-sm-6"><img ng-src="{{image}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto; "></br></div>
+		<div class="col-sm-6" alaign="right">
+			<div ng-repeat="name in namelist">
+	    		<a href=""><h3>{{name}}</h3></a>
+	    	</div>
+	    	<div ng-reapeat="snack in snacklist">
+	    		<b>Filmsnacks:</b>{{snack}} </br>
+	    	</div>
+  		</div>
+	</div>
 </div>
 
-</div>
