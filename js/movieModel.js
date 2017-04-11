@@ -7,7 +7,7 @@ var currentSearch = "";
 var currentUser = "";
 
 // Hämta alla filmer
-this.setCurrentUser = function() {
+this.setCurrentUser = function(currentUser) {
 	$cookies.put("currentUser", currentUser);
 }
 
@@ -16,9 +16,8 @@ this.getCurrentUser = function() {
 	$cookies.get("currentUser");
 }
 
-// Sök bland filmer
-this.searchMovie = function() {
-
+this.removeCurrentUser = function() {
+	$cookies.put("currentUser", "");
 }
 
 // this.createNewUser = function(id, name, snack, imageUrl) {

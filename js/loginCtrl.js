@@ -5,6 +5,7 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 
 		  	if (snapshot.val().password === password) {
 		  		Movie.currentUser = username;
+		  		Movie.setCurrentUser(username);
 		  		console.log("Passwords match");
 		  		$window.location.assign('#!/movieSearch');
 		  	}
