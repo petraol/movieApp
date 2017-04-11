@@ -7,13 +7,13 @@ var currentSearch = "";
 var currentUser = "";
 
 // Hämta alla filmer
-this.getAllMovies = function() {
-
+this.setCurrentUser = function() {
+	$cookies.put("currentUser", currentUser);
 }
 
 // Hämta filmomslag
-this.getMoviePosters = function() {
-
+this.getCurrentUser = function() {
+	$cookies.get("currentUser");
 }
 
 // Sök bland filmer

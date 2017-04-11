@@ -9,7 +9,6 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies) {
 		  			return snapshot.val().realname;
 		  		}
 		  		$scope.image = function() {
-		  			console.log("bilden", snapshot.val().profile_picture)
 		  			return snapshot.val().profile_picture;
 		  		}
 		  		$scope.snack = function() {
