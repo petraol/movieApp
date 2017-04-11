@@ -1,6 +1,5 @@
 movieApp.controller('profileCtrl', function ($scope,Movie,$cookies) {
 	//var userId = firebase.auth().currentUser.uid;
-		console.log(Movie.getCurrentUser());
 		var username = Movie.getCurrentUser();
 		firebase.database().ref('/users/' + username).on('value', function(snapshot) {
 
