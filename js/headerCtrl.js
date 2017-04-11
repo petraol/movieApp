@@ -1,10 +1,15 @@
 movieApp.controller('headerCtrl', function ($scope,Movie,$cookies) {
 
-		// document.getElementById("logout").addEventListener('click', function() {
-		// 	console.log(Movie.currentUser);
-		// 	Movie.currentUser = "";
-		// 	console.log(Movie.currentUser);
-		// });
+	$scope.logout = function() {
+		console.log(Movie.getCurrentUser());
+		Movie.removeCurrentUser();
+		console.log(Movie.getCurrentUser());
+	}
+
+	$scope.myFunction = function() {
+	    document.getElementById("myDropdown").classList.toggle("show");
+	}
+
 
 });
 
