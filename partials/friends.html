@@ -1,4 +1,4 @@
-
+<div class="container">
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 <style>
 	.container2 {
@@ -11,19 +11,14 @@
 <div class="container2" id="friends">
 
   	<div class="col-sm-12" ng-repeat="user in list" ><h2 style="text-align: center">YOUR FRIENDS</h2></div>
-  	<div class="col-sm-12">	
+  	<div class="col-sm-12">
 		<div class="col-sm-6" align="left"><img ng-src="{{user.profile_picture}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;"></br>
 		</div>
 		<div class="col-sm-4">
 			<a href=""><h3>{{user.realname}}</h3></br></a></br>
 			<b>Filmsnacks:<h4>{{user.snack}}</h4></b>
 		</div>
-		<div class="col-sm-2"></div> 
+		<div class="col-sm-2"></div>
 	</div>
 </div>
-
-
-	
-	
-
-	
+</div>
