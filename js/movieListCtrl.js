@@ -2,8 +2,6 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 
 	//var userName = Movie.user;
 	var userName = Movie.getCurrentUser();
-	$scope.list = [];
-	$scope.dict = {};
 
 	firebase.database().ref('/movieLists/' + userName + "/movie").on("value", function(snapshot) {
 		console.log(snapshot.val());
@@ -45,6 +43,8 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 
 
 	return firebase.database().ref('/movieLists/' + userName + "/movie").on('value', function(snapshot) {
+		$scope.list = [];
+		$scope.dict = {};
 		console.log(snapshot.val())
 		snapshot.forEach(function(childSnapshot) {
 			var movieId = parseInt(childSnapshot.child('movie').val());
@@ -63,7 +63,9 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 				}, function(data) {
 					console.log('error');
 			});
+			
 		});
+
 	});
 
 
