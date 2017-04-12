@@ -1,0 +1,16 @@
+<!-- Movielist -->
+<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
+<div class="container">
+
+	<div class="col-sm-5" style="margin-top: 50px;">
+		<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
+	</div>
+	<div class="col-sm-7" style="text-align: left; font-size: 20pt; margin-top: 50px;"> 
+		<div style="margin-top:50px" class="col-sm-4" style="margin-bottom:50px;">
+			<ul style="list-style-type:none" ng-repeat="movie in list">
+				<li type="checkbox">{{movie.title}}<br/></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
