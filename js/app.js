@@ -49,6 +49,9 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/login.html',
         controller: 'loginCtrl'
       }).
+      when('/oops', {
+        templateUrl: 'partials/oops.html',
+      }).
       when('/movieList', {
         templateUrl: 'partials/movieList.html',
         controller: 'movieListCtrl'
