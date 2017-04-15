@@ -84,7 +84,7 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/header2.html',
         controller: 'header2Ctrl'
       }).
-       when('/friendspage', {
+      when('/friendspage', {
         templateUrl: 'partials/friendspage.html',
         controller: 'friendspageCtrl'
       }).
