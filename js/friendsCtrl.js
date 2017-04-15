@@ -5,6 +5,10 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 //$scope.imagelist = [];
 $scope.list = [];
 var username = Movie.currentUser;
+
+	if (username == "") {
+		$window.location.assign('#!/oops');
+	}
 		firebase.database().ref('/users/').on('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				//var user = childSnapshot.child('realname').val()

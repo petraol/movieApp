@@ -3,6 +3,10 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 	$scope.movieId = Number($routeParams.movieId);
 	$scope.currentUser = Movie.getCurrentUser();
 
+	if ($scope.currentUser == "") {
+		$window.location.assign('#!/oops');
+	}
+
 	for (movie in Movie.currentSearch) {
 		//console.log(Movie.currentSearch[movie].id);
 		//console.log($scope.movieId);
