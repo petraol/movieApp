@@ -11,7 +11,7 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 					if (username == childSnapshot.W.path.o[value]) {
 						$("#usernameerror").show();
 						$("#infoenter").hide();
-						console.log("Inloggning avbruten");
+						console.log("Inloggning avbruten, användarnamn finns redan");
 					}
 					else {
 						if (username || realname || password || snack || imageUrl == null) {
