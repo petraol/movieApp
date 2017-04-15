@@ -22,8 +22,12 @@
 			  <input ng-model="image" type="text" name="imageUrl" value="">
 			  <br>
 			</form> 
+
+			<div style="text-align:center; display:none;" id="usernameerror">That username is already taken, sorry. Try another one.</div>
+			<div style="text-align:center; display:none;" id="infoenter">You have to enter information in every field.</div>
+
 			</br></br></br>
-			<a ng-click="create(username, realname, password, snack, image)" href="#!/movieSearch" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
+			<a ng-click="create(username, realname, password, snack, image)" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>
 	</div>
 	<div class="col-sm-4"></div>
 	</div>
