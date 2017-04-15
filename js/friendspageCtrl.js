@@ -1,7 +1,30 @@
-movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies) {
+movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location,$window) {
 
 	//var userName = Movie.user;
-	var userName = Movie.getCurrentUser();
+	var userName = Movie.getOtherUser();
+
+
+	if (userName == "") {
+		$window.location.assign('#!/oops');
+	}
+
+	console.log("Vid omladdningen var otherUser: " + userName)
+	firebase.database().ref('/users/' + userName).on('value', function(snapshot) {
+
+	  	$scope.$evalAsync(function() {
+
+	  		$scope.name = function() {
+		  		return snapshot.val().realname;
+		  	}
+		  	$scope.image = function() {
+		  		return snapshot.val().profile_picture;
+		  	}
+		  	$scope.snack = function() {
+		  		return snapshot.val().snack;
+		  	}
+	  	});
+
+	});
 
 	firebase.database().ref('/movieLists/' + userName + "/movie").on("value", function(snapshot) {
 		console.log(snapshot.val());
