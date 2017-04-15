@@ -10,7 +10,9 @@ var username = Movie.currentUser;
 				//var user = childSnapshot.child('realname').val()
 				
 				//$scope.namelist.push(childSnapshot.child('realname').val())
-				$scope.list.push(childSnapshot).val()
+				$scope.list.push(childSnapshot.val())
+				//console.log(childSnapshot.val())
+				//console.log($scope.list)
 
 			});
 		});

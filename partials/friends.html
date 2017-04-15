@@ -10,15 +10,16 @@
 
 <div class="container2" id="friends">
 
-  	<div class="col-sm-12" ng-repeat="user in list" ><h2 style="text-align: center">YOUR FRIENDS</h2></div>
-  	<div class="col-sm-12">
+  	<div class="col-sm-12"><h2 style="text-align: center">Other Users</h2></div>
+  	<div class="col-sm-12" ng-repeat="user in list">
 		<div class="col-sm-6" align="left"><img ng-src="{{user.profile_picture}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;"></br>
 		</div>
-		<div class="col-sm-4">
-			<a href=""><h3>{{user.realname}}</h3></br></a></br>
-			<b>Filmsnacks:<h4>{{user.snack}}</h4></b>
+		<div class="col-sm-3" align="text-align: left">
+			
+			</br><a href=""><h3>{{user.realname}}</h3></br></a>
+			<b>Favorite moviesnacks:<h4>{{user.snack}}</h4></b>
 		</div>
-		<div class="col-sm-2"></div>
+		<div class="col-sm-3"></div>
 	</div>
 </div>
 </div>
