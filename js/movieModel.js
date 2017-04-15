@@ -5,6 +5,18 @@ this.movies = [];
 var currentMovie = {};
 var currentSearch = "";
 var currentUser = "";
+var otherUser = "";
+
+// Hämta annan persons id
+this.getOtherUser = function() {
+	var otherUser = $cookies.get("otherUser");
+	return otherUser; 
+}
+
+this.setOtherUser = function() {
+	$cookies.put("otherUser", otherUser);
+}
+
 
 // Hämta alla filmer
 this.setCurrentUser = function(currentUser) {
