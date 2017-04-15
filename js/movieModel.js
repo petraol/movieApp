@@ -2,6 +2,7 @@ movieApp.factory('Movie',function ($resource, $cookies) {
 
 
 this.movies = [];
+this.allUsers = []
 var currentMovie = {};
 var currentSearch = "";
 var currentUser = "";
@@ -34,17 +35,13 @@ this.removeCurrentUser = function() {
 }
 
 // Lägg till film i lista
-this.addMovieToList = function(id) {
-//    this.movies.push(this.currentMovie;
-//    console.log(this.movie);
-//    var idString = ""
-//    for (element in this.movies) {
-//      idString += this.movies[element].id + "_"
-//    };
-//    console.log(idString);
-//    var newString = ""
-//    newString = idString.split("_");
-//    $cookies.put('movies', newString);
+this.getAllRegisteredUsers = function() {
+	// firebase.database().ref('/users/').on('value', function(snapshot) {
+	// 	snapshot.forEach(function(childSnapshot) {
+	// 		for (value in childSnapshot.W.path.o) {
+	// 			console.log(childSnapshot.W.path.o[value]);
+	// 			this.allUsers.append(childSnapshot.W.path.o[value]);
+
 }
 
 this.MovieSearch = $resource('http://api.themoviedb.org/3/search/movie?api_key=573bb1edb1c5674d09c84f39d01dcf69&query=:query');

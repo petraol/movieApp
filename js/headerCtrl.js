@@ -1,9 +1,8 @@
 movieApp.controller('headerCtrl', function ($scope,Movie,$cookies) {
 
 	$scope.logout = function() {
-		console.log(Movie.getCurrentUser());
+		console.log("Nu loggas " + Movie.getCurrentUser() + " ut");
 		Movie.removeCurrentUser();
-		console.log(Movie.getCurrentUser());
 	}
 
 	$scope.name = Movie.getCurrentUser();

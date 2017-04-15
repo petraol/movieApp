@@ -2,35 +2,42 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 
 	$scope.create = function(username, realname, password, snack, imageUrl) {
 
-		Movie.currentUser = username;
+		if (username == null || password == null || realname == null || snack == null || imageUrl == null) {
+			$("#infoenter").show();
+			$("#usernameerror").hide();
+			return;
+		}
+
+		Movie.setCurrentUser(username);
 
 		firebase.database().ref('/users/').on('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				for (value in childSnapshot.W.path.o) {
-					console.log(childSnapshot.W.path.o[value]);
-					if (username == childSnapshot.W.path.o[value]) {
-						$("#usernameerror").show();
-						$("#infoenter").hide();
-						console.log("Inloggning avbruten, användarnamn finns redan");
+
+					if (childSnapshot.W.path.o[value] == "users") {}
+					else {Movie.allUsers += childSnapshot.W.path.o[value];}
+					
 					}
-					else {
-						if (username || realname || password || snack || imageUrl == null) {
-							$("#infoenter").show();
-							$("#usernameerror").hide();
-						}
-						else {
-						firebase.database().ref('users/' + username).set({
-							realname: realname,
-						    password: password,
-						    snack: snack,
-						    profile_picture : imageUrl
-						  });
-						console.log("Nu har användaren skapats och vi byter view");
-						$window.location.assign('#!/movieSearch');
-						}
-					};
+				});
+
+				console.log(Movie.allUsers);
+				allUsers = Movie.allUsers;
+
+				if (allUsers.includes(username)) {
+					$("#infoenter").hide();
+					$("#usernameerror").show();
 				}
-			});
+
+				else {
+				firebase.database().ref('users/' + username).set({
+					realname: realname,
+				    password: password,
+				    snack: snack,
+				    profile_picture : imageUrl
+				  });
+				console.log("Nu har användaren skapats och vi byter view");
+				$window.location.assign('#!/movieSearch');
+				}
 		});
 	}
 });
