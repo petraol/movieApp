@@ -11,7 +11,8 @@ var otherUser = "";
 // Hämta annan persons id
 this.getOtherUser = function() {
 	var otherUser = $cookies.get("otherUser");
-	return otherUser; 
+	console.log(otherUser);
+	return otherUser;
 }
 
 this.setOtherUser = function() {

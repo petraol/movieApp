@@ -1,9 +1,8 @@
-movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location,$window) {
+movieApp.controller('friendspageCtrl', function ($scope,$routeParams,Movie,$cookies,$location,$window) {
 
 	//var userName = Movie.user;
-	userName = Movie.getOtherUser();
+	var userName = Movie.getOtherUser();
 	console.log(userName);
-
 
 	if (userName == "") {
 		$window.location.assign('#!/oops');
@@ -24,7 +23,6 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 		  		return snapshot.val().snack;
 		  	}
 	  	});
-
 	});
 
 	firebase.database().ref('/movieLists/' + userName + "/movie").on("value", function(snapshot) {
@@ -58,13 +56,10 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 					update['/movieLists/' + userName + '/movie/' + key] = newData;
 					console.log(newData)
 					return firebase.database().ref().update(update);
-
 				}
-
 			});
 		});
 	}
-
 
 	return firebase.database().ref('/movieLists/' + userName + "/movie").on('value', function(snapshot) {
 		$scope.list = [];
@@ -87,10 +82,6 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 				}, function(data) {
 					console.log('error');
 			});
-
 		});
-
 	});
-
-
 });
