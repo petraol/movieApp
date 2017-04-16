@@ -19,4 +19,3 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 		Movie.currentuser = username;
 	}
 });
-

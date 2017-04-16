@@ -1,7 +1,8 @@
 movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location,$window) {
 
 	//var userName = Movie.user;
-	var userName = Movie.getOtherUser();
+	userName = Movie.getOtherUser();
+	console.log(userName);
 
 
 	if (userName == "") {
@@ -45,7 +46,7 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 						newData = {
 						movie: movieId,
 						checked: false
-						};	
+						};
 					}
 					else  {
 						newData = {
@@ -56,10 +57,10 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 					var update = {}
 					update['/movieLists/' + userName + '/movie/' + key] = newData;
 					console.log(newData)
-					return firebase.database().ref().update(update);	
+					return firebase.database().ref().update(update);
 
 				}
-				
+
 			});
 		});
 	}
@@ -80,13 +81,13 @@ movieApp.controller('friendspageCtrl', function ($scope,Movie,$cookies,$location
 			else {
 				$scope.dict[movieId] = "color:white";
 			}
-			Movie.getMovie.get({id:movieId}, 
+			Movie.getMovie.get({id:movieId},
 				function(data) {
 					$scope.list.push(data);
 				}, function(data) {
 					console.log('error');
 			});
-			
+
 		});
 
 	});
