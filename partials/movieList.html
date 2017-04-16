@@ -2,11 +2,14 @@
 <div class="container">
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
+	<div class="col-sm-12">
+	<h2 align="middle"> My must-see list </h2>
+	</div>
 	<div class="col-sm-5" style="margin-top: 50px;">
 		<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
 	</div>
 	<div id="movieList">
-		<div class="col-sm-7" style="text-align: left; font-size: 20pt; margin-top: 50px;">
+		<div class="col-sm-7" style="text-align: left; font-size: 20pt;">
 			<div style="margin-top:50px" style="margin-bottom:50px;">
 				<ul style="list-style-type:none" ng-repeat="movie in list">
 					<div>
@@ -14,7 +17,8 @@
 							<div ng-click="check(movie.id)" style="display: inline-block;"><image id="check" src='{{pictureDict[movie.id]}}' height='25px' width='25px'/> &nbsp; {{movie.title}} 
 							</div>
 							<a ng-href="#!/movieInfo/{{movie.id}}"><image id="check" src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='25px' width='25px'></image>
-							</a>
+							</a>  &nbsp;
+							<a ng-click="remove(movie.id)"><image id="check" src='http://www.bushundarna.se/wp-content/uploads/2015/12/kryss.png' height='25px' width='25px'/></a>
 						<br/></li>
 					</div>
 				</ul>

@@ -53,6 +53,18 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 
 	$scope.add = function() {
+		//Fixa så man inte kan lägga in dubletter!!
+		firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				var key = childSnapshot.key;
+				var movieId = parseInt(childSnapshot.child('movie').val());
+				if ($scope.movieId === movieId) {
+					console.log('already in list! Removing dublette');
+					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
+					return;
+				}
+			});
+		});
 		console.log('added movie to database')
 		firebase.database().ref('movieLists/' + currentUser + "/movie").push().set({
 			movie: $scope.movieId,

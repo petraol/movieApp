@@ -41,6 +41,20 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		});
 	}
 
+	$scope.remove = function(id) {
+		firebase.database().ref('/movieLists/' + userName + "/movie").once('value', function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				var key = childSnapshot.key;
+				var movieId = parseInt(childSnapshot.child('movie').val());
+				if (id === movieId) {
+					console.log('removing key:', key, 'with id', movieId)
+					firebase.database().ref('movieLists/' + userName + "/movie/" + key).remove();
+				}
+			});
+		});
+	}
+
+
 	function compare(a,b) {
 	  if (a.title < b.title)
 	    return -1;
@@ -53,10 +67,8 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		$scope.list = [];
 		$scope.dict = {};
 		$scope.pictureDict = {};
-		console.log(snapshot.val())
 		snapshot.forEach(function(childSnapshot) {
 			var movieId = parseInt(childSnapshot.child('movie').val());
-			console.log('visar id:', movieId)
 			var movieChecked = childSnapshot.child('checked').val();
 			
 			if (movieChecked === true) {
