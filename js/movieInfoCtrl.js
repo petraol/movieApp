@@ -54,10 +54,24 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 	$scope.add = function() {
 		console.log('added movie to database')
-		firebase.database().ref('movieLists/' + $scope.currentUser + "/movie").push().set({
+		firebase.database().ref('movieLists/' + currentUser + "/movie").push().set({
 			movie: $scope.movieId,
 			checked: false
 		})
 	}
+
+	$scope.delete = function() {
+		firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				var key = childSnapshot.key;
+				var movieId = parseInt(childSnapshot.child('movie').val());
+				if ($scope.movieId === movieId) {
+					console.log('removing key:', key, 'with id', movieId)
+					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
+				}
+			});
+		});
+	}
+
 
 });

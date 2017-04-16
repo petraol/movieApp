@@ -56,6 +56,7 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		console.log(snapshot.val())
 		snapshot.forEach(function(childSnapshot) {
 			var movieId = parseInt(childSnapshot.child('movie').val());
+			console.log('visar id:', movieId)
 			var movieChecked = childSnapshot.child('checked').val();
 			
 			if (movieChecked === true) {
