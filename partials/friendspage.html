@@ -2,24 +2,23 @@
 
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 	<div class="container">
-		<div class="col-sm-5" style="margin-top: 50px;">
-			<div style="text-align: center; font-size: 15pt;">
-			  	<img ng-src="{{image()}}" id="profilepic"
-			  	style="height:300px; width:300px; display:block; margin:auto;"></br>
-			 	<h3>{{name()}}</h3></br>
-			  	<b>Favoritsnacks: </b>{{snack()}}</br>
-			  	<b>Filmer jag gillar:</b></br>
-			  	<a href="#!/movieList">My Movielist</a>
+		<div class="col-sm-12" style="margin-top: 50px; text-align: center; font-size: 15pt;">
+			<div class="col-sm-6">
+			  	<img ng-src="{{image()}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;">
 			</div>
-		</div>
+			<div class="col-sm-6">
+			 	<h3>Namnet {{name()}}</h3></br>
+			  	<b>Favoritsnacks: </b>{{snack()}}</br>
+			</div>
+			</div>
 		<div id="movieList">
-			<div class="col-sm-7" style="text-align: left; font-size: 20pt; margin-top: 50px;">
-				<div style="margin-top:50px" style="margin-bottom:50px;">
-					<ul style="list-style-type:none" ng-repeat="movie in list">
-						<div ng-click="check(movie.id)"><li style="{{dict[movie.id]}}">{{movie.title}}<br/></li></div>
-					</ul>
+			<div class="col-sm-12" style="text-align: left; font-size: 15pt; margin-top: 50px;">
+				<div style="margin-top:20px; margin-bottom:50px;">
+					<div style="list-style-type:none" ng-repeat="movie in list" class="col-sm-2">
+						<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" height="210px" width="140px">
+						<div ng-click="check(movie.id)"><div style="{{dict[movie.id]}}; text-align: center;">{{movie.title}}<br/></div></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
