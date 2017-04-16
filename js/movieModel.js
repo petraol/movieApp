@@ -19,31 +19,38 @@ this.setOtherUser = function() {
 	$cookies.put("otherUser", otherUser);
 }
 
-
-// Hämta alla filmer
+// Sätt nuvarande användare
 this.setCurrentUser = function(currentUser) {
 	$cookies.put("currentUser", currentUser);
 }
 
-// Hämta filmomslag
+// Hämta nuvarande användare
 this.getCurrentUser = function() {
 	var currentUser = $cookies.get("currentUser");
 	return currentUser;
 }
 
+// Ta bort nuvarande användare
 this.removeCurrentUser = function() {
 	$cookies.put("currentUser", "");
 }
 
-// Lägg till film i lista
-this.getAllRegisteredUsers = function() {
-	// firebase.database().ref('/users/').on('value', function(snapshot) {
-	// 	snapshot.forEach(function(childSnapshot) {
-	// 		for (value in childSnapshot.W.path.o) {
-	// 			console.log(childSnapshot.W.path.o[value]);
-	// 			this.allUsers.append(childSnapshot.W.path.o[value]);
-
+// Sätt nuvarande användare
+this.setCurrentMovie = function(currentMovie) {
+	$cookies.put("currentMovie", currentMovie);
 }
+
+// Hämta nuvarande användare
+this.getCurrentMovie = function() {
+	var currentMovie = $cookies.get("currentMovie");
+	return currentMovie;
+}
+
+// Ta bort nuvarande användare
+this.removeCurrentMovie = function() {
+	$cookies.put("currentMovie", "");
+}
+
 
 this.MovieSearch = $resource('http://api.themoviedb.org/3/search/movie?api_key=573bb1edb1c5674d09c84f39d01dcf69&query=:query');
 
