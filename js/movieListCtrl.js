@@ -41,30 +41,43 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		});
 	}
 
+	function compare(a,b) {
+	  if (a.title < b.title)
+	    return -1;
+	  if (a.title > b.title)
+	    return 1;
+	  return 0;
+	}
 
-	return firebase.database().ref('/movieLists/' + userName + "/movie").on('value', function(snapshot) {
+	return firebase.database().ref('/movieLists/' + userName + "/movie").orderByChild('movie').on('value', function(snapshot) {
 		$scope.list = [];
 		$scope.dict = {};
 		console.log(snapshot.val())
 		snapshot.forEach(function(childSnapshot) {
+			console.log("första for", childSnapshot.child('movie').val())
 			var movieId = parseInt(childSnapshot.child('movie').val());
 			var movieChecked = childSnapshot.child('checked').val();
-			//var movieChecked = true;
-			console.log("is movie checke", movieChecked)
+			
 			if (movieChecked === true) {
 				$scope.dict[movieId] = "color:#595959";
 			}
 			else {
 				$scope.dict[movieId] = "color:white";
 			}
+			console.log("andra for", movieId)
 			Movie.getMovie.get({id:movieId}, 
 				function(data) {
 					$scope.list.push(data);
+					$scope.list.sort(compare);
+					console.log("i get",data.id)
+
 				}, function(data) {
 					console.log('error');
 			});
+
 			
 		});
+		
 
 	});
 
