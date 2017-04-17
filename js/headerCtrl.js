@@ -9,6 +9,12 @@ movieApp.controller('headerCtrl', function ($scope,Movie,$cookies) {
 
 	$scope.myFunction = function() {
 	    document.getElementById("myDropdown").classList.toggle("show");
+
+	$scope.cleanMovieCookie = function() {
+		console.log("Moviecookie rensas");
+		Movie.removeCurrentUser();
+	}
+
 	}
 
 

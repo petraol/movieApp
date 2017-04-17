@@ -3,10 +3,10 @@
 	<div class="dropdown">
 			<button ng-click="myFunction()" class="dropbtn"><h6>Menu</h6></button>
 			<div id="myDropdown" class="dropdown-content">
-		    <a href="#!/movieList">My lists</a>
-		    <a href="#!/friends">Other users</a>
-		    <a href="#!movieSearch">Search movies</a>
-		    <a href="#!editprofile">Edit profile</a>
+		    <a ng-click="cleanMovieCookie()" href="#!/movieList">My lists</a>
+		    <a ng-click="cleanMovieCookie()" href="#!/friends">Other users</a>
+		    <a ng-click="cleanMovieCookie()" href="#!movieSearch">Search movies</a>
+		    <a ng-click="cleanMovieCookie()" href="#!editprofile">Edit profile</a>
 			</div>
 	</div><a ng-click="myLists" href="#!/movieList" type="button" class="btn"><h6>My Movielist</h6></a>
 	</div>
@@ -14,6 +14,6 @@
 	<div class="col-sm-1" id="logout">
 		<a ng-click="logout()" href="#!/homepage" type="button" class="btn"><h6>Log Out</h6></a></div>
 	<div class="col-sm-2">
-		<a href="#!/movieSearch" type="button" class="btn"><h6>Logged In As: {{name}}</h6></a>
+		<a ng-click="cleanMovieCookie()" href="#!/movieSearch" type="button" class="btn"><h6>Logged In As: {{name}}</h6></a>
 	</div>
 </div>
