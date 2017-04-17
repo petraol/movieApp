@@ -47,11 +47,6 @@ div {
     bottom: 2.5px;
 }
 
-#movieList {
-    background-color: black;
-    opacity: 0.6;
-}
-
 .vertical-center {
   min-height: 50%;
   min-height: 100vh;
