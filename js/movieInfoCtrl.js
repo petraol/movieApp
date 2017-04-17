@@ -15,6 +15,15 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 		Movie.getMovie.get({id:$scope.movieId}, 
 			function(data) {
+				if (data.original_language === "en") {
+					language = "English"
+				}
+				else if (data.original_language === "sv") {
+					language = "Swedish"
+				}
+				else {
+					language = data.original_language;
+				}
 				var html = "<div id='movieInfo'><h2>" + data.title + "</h2></br><div class='col-sm-5'><img src='https://image.tmdb.org/t/p/w1280" + data.poster_path +
 				 "' alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>" + data.overview +"</br></br><b>Original Language: </b>"
 				 + data.original_language +"</br></br><b>Average Grade: </b>"+data.vote_average+"/10 from "+data.vote_count+
@@ -66,6 +75,8 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			});
 		});
 		console.log('added movie to database')
+		$("#heart").hide();
+		$("#nopeheart").show();
 		firebase.database().ref('movieLists/' + currentUser + "/movie").push().set({
 			movie: $scope.movieId,
 			checked: false
@@ -79,6 +90,8 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				var movieId = parseInt(childSnapshot.child('movie').val());
 				if ($scope.movieId === movieId) {
 					console.log('removing key:', key, 'with id', movieId)
+					$("#nopeheart").hide();
+					$("#heart").hide();
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 				}
 			});
