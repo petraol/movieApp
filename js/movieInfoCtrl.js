@@ -7,6 +7,18 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		$window.location.assign('#!/oops');
 	}
 
+	// Check if it's already in the users movielist. If it is, remove the heart-button.
+	firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			var key = childSnapshot.key;
+			var movieId = parseInt(childSnapshot.child('movie').val());
+			if ($scope.movieId === movieId) {
+				$("#heart").hide();
+				$("#nopeheart").show();
+			}
+			});
+		});
+
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
 
@@ -67,7 +79,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			snapshot.forEach(function(childSnapshot) {
 				var key = childSnapshot.key;
 				var movieId = parseInt(childSnapshot.child('movie').val());
-				if ($scope.movieId === movieId) {
+				if ($scope.movieId === movieId) { 
 					console.log('already in list! Removing dublette');
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 					return;
@@ -91,7 +103,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				if ($scope.movieId === movieId) {
 					console.log('removing key:', key, 'with id', movieId)
 					$("#nopeheart").hide();
-					$("#heart").hide();
+					$("#heart").show();
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 				}
 			});
