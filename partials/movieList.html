@@ -7,8 +7,13 @@
 	</div>
 	<div id="movieList">
 		<div class="col-sm-7" style="text-align: left; font-size: 20pt;">
-		<h2 align="middle"> My must-see list </h2>
-			<div style="margin-top:50px" style="margin-bottom:50px;">
+		<h2>My must-see list</h2>
+		<div style="font-size:15px;">Here's your movie bucketlist. </br></br>
+		You can click <image src="https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png" height='15px' width='15px'/> to mark the movie as seen. </br>
+		You can click <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='15px' width='15px'/> to learn more about the movie.</br>
+		Or you can click <image id="check" src='http://www.bushundarna.se/wp-content/uploads/2015/12/kryss.png' height='15px' width='15px'/> to delete the movie from your list</div>
+
+			<div style="margin-top:20px" style="margin-bottom:50px;">
 				<ul style="list-style-type:none" ng-repeat="movie in list">
 					<div>
 						<li style="{{dict[movie.id]}}">
