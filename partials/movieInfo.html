@@ -1,15 +1,14 @@
 <div class="container">
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
-<div id="movieInfo" class="col-sm-12"></div>
+<div id="movieInfo"></div>
 
-		<div class='col-sm-2'><b>
-				<img src='http://i.imgur.com/EQWK9jp.png' height='70px' width='70px'/>
-		</div>
-		<div class='col-sm-10'></br>
-			<a style='color: #e74c3c;' ng-click="add()">Add to my list</b></a>
-			<a ng-click="delete()">Remove from my list</a>
-		</div>
-
+		<div class='col-sm-5' id='img' onclick='triggeranimation()' style="text-align:center;"><b><a style='color: #e74c3c;' ng-click="add()"><img src='http://i.imgur.com/EQWK9jp.png' height='100px' width='100px'/></br> Add to my list</div></a><div class="col-sm-5" style="text-align:center;"><a ng-click="delete()">Remove from my list</a></div></b>
 
 </div>
+
+<script>
+	function triggeranimation(){
+		document.getElementById('img').id ='imgid';
+	}
+</script>
