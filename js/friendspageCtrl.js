@@ -1,7 +1,7 @@
 movieApp.controller('friendspageCtrl', function ($scope,$routeParams,Movie,$cookies,$location,$window) {
 
 	//var userName = Movie.user;
-	var userName = Movie.getOtherUser();
+	var userName = Movie.getCurrentUser();
 	console.log(userName);
 
 	if (userName == "") {
