@@ -1,5 +1,9 @@
 movieApp.controller('friendspageCtrl', function ($scope,$routeParams,Movie,$cookies,$location,$window) {
 
+
+	var  getOtherUser = []
+
+	.click()  
 	//var userName = Movie.user;
 	var userName = Movie.getOtherUser();
 	console.log(userName);
