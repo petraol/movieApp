@@ -15,33 +15,32 @@ this.getOtherUser = function() {
 	return otherUser;
 }
 
-this.setOtherUser = function() {
-	$scope.otherUserList = [];
-	var username = Movie.currentUser;
+//this.setOtherUser = function() {
+//	$scope.otherUserList = [];
+//	var username = Movie.currentUser;
 
-	if (username == "") {
-		$window.location.assign('#!/oops');
-	}
-		firebase.database().ref('/users/').on('value', function(snapshot) {
+//	if (username == "") {
+//		$window.location.assign('#!/oops');
+//	}
+//		firebase.database().ref('/users/').on('value', function(snapshot) {
 
-			if ('value' =! currentUser.username) {
-				$scope.otherUserList += 'value';
+//			if ('value' =! currentUser.username) {
+//				$scope.otherUserList += 'value';
 
-				snapshot.forEach(function(childSnapshot) {
+//				snapshot.forEach(function(childSnapshot) {
 				//var user = childSnapshot.child('realname').val()
 				
 				//$scope.namelist.push(childSnapshot.child('realname').val())
-				$scope.list.push(childSnapshot.val())
+				//$scope.list.push(childSnapshot.val())
 				//console.log(childSnapshot.val())
 				//console.log($scope.list)
 
-			});
-			}
-			return $scope.otherUserList
+	//		});
+	//		}
+	//		return $scope.otherUserList
 
-		});
-});
-}
+	//	});
+//}
 
 // Sätt nuvarande användare
 this.setCurrentUser = function(currentUser) {
