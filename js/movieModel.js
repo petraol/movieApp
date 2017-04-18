@@ -15,6 +15,10 @@ this.getOtherUser = function() {
 	return otherUser;
 }
 
+this.setOtherUser = function(otherUser) {
+	$cookies.put("othertUser", otherUser);
+}
+
 //this.setOtherUser = function() {
 //	$scope.otherUserList = [];
 //	var username = Movie.currentUser;
