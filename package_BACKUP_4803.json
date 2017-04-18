@@ -1,0 +1,23 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "movie-app",
+  "description": "A starter project for Interaction Programming course Lab5",
+  "repository": "https://gits-15.sys.kth.se/antmar/movieApp.git",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "bower": "^1.8.x"
+  },
+  "scripts": {
+<<<<<<< HEAD
+  
+   
+=======
+    "postinstall": "bower install",
+
+>>>>>>> 048247177caadaaf6e86fef419f187a210dbb11d
+    "prestart": "npm install",
+    "start": "http-server ./ -a 0.0.0.0 -p 8000"
+  }
+}
