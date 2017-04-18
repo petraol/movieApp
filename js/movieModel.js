@@ -16,7 +16,31 @@ this.getOtherUser = function() {
 }
 
 this.setOtherUser = function() {
-	$cookies.put("otherUser", otherUser);
+	$scope.otherUserList = [];
+	var username = Movie.currentUser;
+
+	if (username == "") {
+		$window.location.assign('#!/oops');
+	}
+		firebase.database().ref('/users/').on('value', function(snapshot) {
+
+			if ('value' =! currentUser.username) {
+				$scope.otherUserList += 'value';
+
+				snapshot.forEach(function(childSnapshot) {
+				//var user = childSnapshot.child('realname').val()
+				
+				//$scope.namelist.push(childSnapshot.child('realname').val())
+				$scope.list.push(childSnapshot.val())
+				//console.log(childSnapshot.val())
+				//console.log($scope.list)
+
+			});
+			}
+			return $scope.otherUserList
+
+		});
+});
 }
 
 // Sätt nuvarande användare
