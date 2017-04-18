@@ -6,7 +6,6 @@ $('#loading').hide(); // Hiding loading gif
 				$scope.searchResults = data.results;
 				Movie.currentSearch = data.results;
 				Movie.removeCurrentMovie();
-				$("#heart").hide();
 
 			},
 			function(data) {

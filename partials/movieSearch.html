@@ -15,25 +15,20 @@
 		style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Sök"/>
 	</form>
 
-	<div ng-repeat="movie in searchResults" class="col-sm-4" style="margin-top:7%; height: 400px; opacity: 1;">
+	<div ondragstart="handleDragStart(event)" draggable="true" id="dragtarget" class="col-sm-4" ng-repeat="movie in searchResults" style="margin-top:7%; height: 400px; opacity: 1; cursor:move">
 		<a ng-href="#!/movieInfo/{{movie.id}}">
 		<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}"
-		alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px" draggable="true" id="amovie"/></br>
+		alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px" draggable="true" ondragstart="handleDragStart(event)"/></br>
 		<h3 style="text-align: center;">{{movie.title}}</h3></a></div>
 	</div>
-</div>
 </div>
 
 
 <script>
-	function handleDragStart(e) {
-		this.style.opacity = '0.4';  // this / e.target is the source node.
-	}
+function handleDragStart(event) {
+	console.log("Startar dragning");
+	event.target.style.opacity = '0.4';
+    event.dataTransfer.setData("Text", event.target.id);
+}
 
-	var cols = document.querySelectorAll('#amovie');
-
-	console.log(cols);
-	[].forEach.call(cols, function(col) {
-  		col.addEventListener('dragstart', handleDragStart, false);
-	});	
 </script>

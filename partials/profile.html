@@ -1,8 +1,41 @@
 <!--PROFILE-->
+<style>
+.droptarget {
+    float: left; 
+    width: 100px; 
+    height: 35px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <p ondragstart="dragStart(event)" draggable="true" id="dragtarget">Drag me!</p>
+</div>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
 <div style="text-align: center; font-size: 15pt;">
   <img ng-src="{{image()}}" id="profilepic"
   style="height:300px; width:300px; display:block; margin:auto;"></br>
   <h3>{{name()}}</h3></br>
   <b>Favorite snack: </b>{{snack()}}</br></br>
   <a href="#!/movieList">My Movielist</a>
-  <div id=plussign style="opacity: 0.5;"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></div>
+  <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5;"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></div>
+
+<script>
+function dragStart(event) {
+    event.dataTransfer.setData("Text", event.target.id);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("Text");
+    event.target.appendChild(document.getElementById(data));
+}
+</script>

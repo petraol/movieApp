@@ -165,3 +165,7 @@ to {
   -webkit-user-drag: element;
   cursor: move;
 }
+
+#plussign.over {
+    border: 2px dashed #000;
+}
