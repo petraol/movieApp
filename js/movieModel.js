@@ -7,6 +7,7 @@ var currentMovie = {};
 var currentSearch = "";
 var currentUser = "";
 var otherUser = "";
+var friendUsername = "";
 
 // Hämta annan persons id
 this.getOtherUser = function() {
@@ -17,6 +18,15 @@ this.getOtherUser = function() {
 
 this.setOtherUser = function(otherUser) {
 	$cookies.put("othertUser", otherUser);
+}
+
+this.setFriend = function(friendUsername) {
+	$cookies.put("friendUsername", friendUsername);
+}
+
+this.getFriend = function() {
+	var friend = $cookies.get("friendUsername");
+	return friend;
 }
 
 //this.setOtherUser = function() {
