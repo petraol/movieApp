@@ -147,8 +147,18 @@ a:active {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.dropdown-content2 a:hover {background-color: #f1f1f1}
+/* Show the dropdown menu on hover */
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
+    background-color: black;
+}
+
+.dropdown2:hover .dropbtn {
     background-color: black;
 }
 
