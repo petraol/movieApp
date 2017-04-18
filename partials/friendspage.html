@@ -12,9 +12,9 @@
 			<h3>Namnet {{name()}}</h3></br>
 			<b>Favoritsnacks: </b>{{snack()}}
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4" id="myMovieList" ondrop="drop(event)" ondragover="allowDrop(event)">
 			<img src="graphics/popcorn-icon.png" id="movieList"
-			style="opacity: 0.5; height:140px; width:135px; margin-top: 5%; margin-left: 40%;">
+			style="opacity: 0.5; height:140px; width:120px; margin-top: 5%; margin-left: 40%;">
 		</div>
 	</div>
 
@@ -23,7 +23,7 @@
 			<div style="list-style-type:none"
 			ng-repeat="movie in list" class="col-sm-2">
 			<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}"
-			id="amovie" height="210px" width="140px" draggable="true">
+			id="the_movie" height="210px" width="140px" draggable="true" ondragstart="drag(event)">
 			<div ng-click="check(movie.id)"
 			style="{{dict[movie.id]}}; text-align: center;">
 			{{movie.title}}<br/></div>
@@ -33,14 +33,17 @@
 </div>
 
 <script>
-	function handleDragStart(e) {
-		this.style.opacity = '0.4';  // this / e.target is the source node.
-	}
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-	var cols = document.querySelectorAll('#amovie');
+function drag(ev) {
+    ev.dataTransfer.setData("the_movie", ev.target.id);
+}
 
-	console.log(cols);
-	[].forEach.call(cols, function(col) {
-  		col.addEventListener('dragstart', handleDragStart, false);
-	});
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("the_movie");
+    ev.target.appendChild(document.getElementById(data));
+}
 </script>
