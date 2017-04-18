@@ -19,9 +19,24 @@
 			<div style="list-style-type:none"
 			ng-repeat="movie in list" class="col-sm-2">
 			<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}"
-			height="210px" width="140px">
-			<div ng-click="check(movie.id)" style="{{dict[movie.id]}}; text-align: center;">{{movie.title}}<br/></div>
+			id="amovie" height="210px" width="140px" draggable="true">
+			<div ng-click="check(movie.id)"
+			style="{{dict[movie.id]}}; text-align: center;">
+			{{movie.title}}<br/></div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	function handleDragStart(e) {
+		this.style.opacity = '0.4';  // this / e.target is the source node.
+	}
+
+	var cols = document.querySelectorAll('#amovie');
+
+	console.log(cols);
+	[].forEach.call(cols, function(col) {
+  		col.addEventListener('dragstart', handleDragStart, false);
+	});
+</script>
