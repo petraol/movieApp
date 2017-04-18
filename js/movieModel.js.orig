@@ -15,6 +15,35 @@ this.getOtherUser = function() {
 	return otherUser;
 }
 
+<<<<<<< HEAD
+this.setOtherUser = function() {
+	$scope.otherUserList = [];
+	var username = Movie.currentUser;
+
+	if (username == "") {
+		$window.location.assign('#!/oops');
+	}
+		firebase.database().ref('/users/').on('value', function(snapshot) {
+
+			if ('value' =! currentUser.username) {
+				$scope.otherUserList += 'value';
+
+				snapshot.forEach(function(childSnapshot) {
+				//var user = childSnapshot.child('realname').val()
+				
+				//$scope.namelist.push(childSnapshot.child('realname').val())
+				$scope.list.push(childSnapshot.val())
+				//console.log(childSnapshot.val())
+				//console.log($scope.list)
+
+			});
+			}
+			return $scope.otherUserList
+
+		});
+});
+}
+=======
 //this.setOtherUser = function() {
 //	$scope.otherUserList = [];
 //	var username = Movie.currentUser;
@@ -29,7 +58,7 @@ this.getOtherUser = function() {
 
 //				snapshot.forEach(function(childSnapshot) {
 				//var user = childSnapshot.child('realname').val()
-
+				
 				//$scope.namelist.push(childSnapshot.child('realname').val())
 				//$scope.list.push(childSnapshot.val())
 				//console.log(childSnapshot.val())
@@ -41,6 +70,7 @@ this.getOtherUser = function() {
 
 	//	});
 //}
+>>>>>>> 03ea5f01169db3c499b559caaa72b6469e4f7e72
 
 // Sätt nuvarande användare
 this.setCurrentUser = function(currentUser) {
