@@ -3,7 +3,7 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 //$scope.namelist = [];
 //$scope.snacklist = [];
 $scope.myFunction2 = function() {
-	    document.getElementById("myDropdown").classList.toggle("show");
+	    document.getElementById("movieDropdown").classList.toggle("show");
 		}
 
 $scope.movielist = [];
