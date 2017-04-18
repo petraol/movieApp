@@ -16,11 +16,14 @@
 		<div class="col-sm-6" align="left"><img ng-src="{{user.profile_picture}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;"></br>
 		</div>
 		<div class="col-sm-3" align="text-align: left"></br>
-			<h3>{{user.realname}}</h3></br>
+			<button ng-click="myFunction2()" class="dropbtn"><h3>{{user.realname}}</h3></button></br>
 			<b>Favorite moviesnacks:<h4>{{user.snack}}</h4></b>
+			<div id="movieDropdown" class="dropdown-content2">
+				filmerna
+			</div>
+
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
-	<div ng-repeat="movie in movielist">{{movie}}</div>
 </div>
 </div>
