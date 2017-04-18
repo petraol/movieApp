@@ -38,12 +38,12 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("movie", ev.target.id);
+    ev.dataTransfer.setData("the_movie", ev.target.id);
 }
 
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("movie");
+    var data = ev.dataTransfer.getData("the_movie");
     ev.target.appendChild(document.getElementById(data));
 }
 </script>
