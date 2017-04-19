@@ -1,4 +1,4 @@
-movieApp.factory('Movie', [function ($resource, $cookies) {
+movieApp.factory('Movie', function ($resource, $cookies) {
 
 
 this.movies = [];
@@ -46,4 +46,4 @@ this.getMovie = $resource('https://api.themoviedb.org/3/movie/:id?api_key=573bb1
 
 return this;
 
-}]);
+});
