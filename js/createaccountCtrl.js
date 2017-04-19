@@ -16,11 +16,10 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 
 					if (childSnapshot.W.path.o[value] == "users") {}
 					else {Movie.allUsers += childSnapshot.W.path.o[value];}
-					
+
 					}
 				});
-
-				console.log(Movie.allUsers);
+				
 				allUsers = Movie.allUsers;
 
 				if (allUsers.includes(username)) {
@@ -31,9 +30,9 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 				else {
 				firebase.database().ref('users/' + username).set({
 					realname: realname,
-				    password: password,
-				    snack: snack,
-				    profile_picture : imageUrl
+				  password: password,
+				  snack: snack,
+				  profile_picture : imageUrl
 				  });
 				console.log("Nu har användaren skapats och vi byter view");
 				$window.location.assign('#!/movieSearch');
