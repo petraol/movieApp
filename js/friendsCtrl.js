@@ -1,21 +1,22 @@
 movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies) {
 
-$scope.userlist = [];
-$scope.username = Movie.getCurrentUser();
-
+	$scope.userlist = [];
+	$scope.username = Movie.getCurrentUser();
 
 	if ($scope.username === "") {
 		$window.location.assign('#!/oops');
 	}
 
-	return firebase.database().ref('users/').on('value', function(snapshot) {
-		//$scope.userlist = [];
-		snapshot.forEach(function(childSnapshot) {
-			if (childSnapshot.val().realname !== $scope.username) {
-				$scope.userlist.push(childSnapshot.val());
-			}
-		console.log($scope.userlist)
-				
+	return firebase.database().ref('/users/').on('value', function(snapshot) {
+		$scope.$evalAsync(function() {
+			snapshot.forEach(function(childSnapshot) {
+				if (childSnapshot.val().realname !== $scope.username) {
+					console.log(childSnapshot.val().realname)
+					$scope.userlist.push(childSnapshot.val());
+				}
+			console.log('the userlist', $scope.userlist)
+					
+			});
 		});
 	});	
 
