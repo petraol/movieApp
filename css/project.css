@@ -211,3 +211,9 @@ to {
         filter: FlipH;
         -ms-filter: "FlipH";
 }
+
+.container2 {
+  width:100%;
+  height:auto;
+  padding:1%;
+}

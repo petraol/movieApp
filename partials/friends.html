@@ -1,29 +1,18 @@
 <div class="container">
 	<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
-	<style>
-		.container2 {
-	    width:100%;
-	    height:auto;
-	    padding:1%;
-	}
-	</style>
-
 	<div class="container2" id="friends">
 
-	  	<div class="col-sm-12"><h2 style="text-align: center">Other Users</h2>
-	  	</div>
+	  	<div class="col-sm-12"><h2 style="text-align: center">Other Users</h2></div>
+
 	  	<div class="col-sm-12" ng-repeat="user in userlist">
-			<div class="col-sm-6" align="left">
-				<img ng-src="{{user.profile_picture}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;"></br>
+				<div class="col-sm-6" align="left">
+					<img ng-src="{{user.profile_picture}}" id="profilepic" style="height:200px; width:200px; display:block; margin:auto;"></br>
+				</div>
+				<div class="col-sm-6" align="text-align: left"></br>
+					<h3><a ng-href="#!/friendsMovieList/{{user.realname}}">{{user.realname}}s Movielist </a></h3></br>
+					<b>Favorite moviesnacks:<h4>{{user.snack}}</h4></b>
+				</div>
 			</div>
-			<div class="col-sm-3" align="text-align: left"></br>
-				<h3>{{user.realname}}</h3></br>
-				<b>Favorite moviesnacks:<h4>{{user.snack}}</h4></b>
-			</div>
-			<div class="col-sm-3">
-			</div>
-			<a ng-href="#!/friendsMovieList/{{user.realname}}">{{user.realname}}s Movielist </a>
-		</div>
 	</div>
 </div>
