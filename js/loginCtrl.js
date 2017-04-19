@@ -14,7 +14,6 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 		  		$("#loginerror").show();
 		  		console.log("Fel lösenord!")
 		  	}
-
 		});
 		Movie.currentuser = username;
 	}

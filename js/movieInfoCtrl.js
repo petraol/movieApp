@@ -53,6 +53,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 	//Om vi inte har en film sparad i cookien, leta istället i sökningen vi nyss gjorde och plocka ut den därifrån
 	else {
+		console.log("Här kommer vi ingen vart nu");
 	for (movie in Movie.currentSearch) {
 		//console.log(Movie.currentSearch[movie].id);
 		//console.log($scope.movieId);
