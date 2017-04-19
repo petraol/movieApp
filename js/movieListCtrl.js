@@ -67,31 +67,32 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		$scope.list = [];
 		$scope.dict = {};
 		$scope.pictureDict = {};
-		snapshot.forEach(function(childSnapshot) {
-			var movieId = parseInt(childSnapshot.child('movie').val());
-			console.log(movieId);
-			var movieChecked = childSnapshot.child('checked').val();
-			
-			if (movieChecked === true) {
-				$scope.dict[movieId] = "color:#595959";
-				$scope.pictureDict[movieId] = "http://www.procliparts.com/resize/900w/cliparts/pele/tqgczgcr9-check-circle.png";
-			}
-			else {
-				$scope.dict[movieId] = "color:white";
-				$scope.pictureDict[movieId] = "https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png";
-			}
-			Movie.getMovie.get({id:movieId}, 
-				function(data) {
-					$scope.list.push(data);
-					$scope.list.sort(compare);
+		$scope.$evalSync(function () {
+			snapshot.forEach(function(childSnapshot) {
+				var movieId = parseInt(childSnapshot.child('movie').val());
+				console.log(movieId);
+				var movieChecked = childSnapshot.child('checked').val();
+				
+				if (movieChecked === true) {
+					$scope.dict[movieId] = "color:#595959";
+					$scope.pictureDict[movieId] = "http://www.procliparts.com/resize/900w/cliparts/pele/tqgczgcr9-check-circle.png";
+				}
+				else {
+					$scope.dict[movieId] = "color:white";
+					$scope.pictureDict[movieId] = "https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png";
+				}
+				Movie.getMovie.get({id:movieId}, 
+					function(data) {
+						$scope.list.push(data);
+						$scope.list.sort(compare);
 
-				}, function(data) {
-					console.log('error');
+					}, function(data) {
+						console.log('error');
 			});
 
 			
 		});
-		
+		});
 
 	});
 

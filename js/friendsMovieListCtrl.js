@@ -4,11 +4,9 @@ movieApp.controller('friendsMovieListCtrl', function ($scope,$routeParams,Movie,
 	$scope.userName = $routeParams.userName;
 
 	firebase.database().ref('/movieLists/' + $scope.userName + "/movie").on("value", function(snapshot) {
-		console.log(snapshot.val());
 			}, function (errorObject) {
 		console.log("The read failed: " + errorObject.code);
 			});
-
 
 	function compare(a,b) {
 	  if (a.title < b.title)
@@ -25,7 +23,7 @@ movieApp.controller('friendsMovieListCtrl', function ($scope,$routeParams,Movie,
 		snapshot.forEach(function(childSnapshot) {
 			var movieId = parseInt(childSnapshot.child('movie').val());
 			var movieChecked = childSnapshot.child('checked').val();
-			
+
 			if (movieChecked === true) {
 				$scope.dict[movieId] = "color:#595959";
 				$scope.pictureDict[movieId] = "http://www.procliparts.com/resize/900w/cliparts/pele/tqgczgcr9-check-circle.png";
@@ -34,7 +32,7 @@ movieApp.controller('friendsMovieListCtrl', function ($scope,$routeParams,Movie,
 				$scope.dict[movieId] = "color:white";
 				$scope.pictureDict[movieId] = "https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png";
 			}
-			Movie.getMovie.get({id:movieId}, 
+			Movie.getMovie.get({id:movieId},
 				function(data) {
 					$scope.list.push(data);
 					$scope.list.sort(compare);
@@ -42,12 +40,6 @@ movieApp.controller('friendsMovieListCtrl', function ($scope,$routeParams,Movie,
 				}, function(data) {
 					console.log('error');
 			});
-
-			
 		});
-		
 	});
 });
-
-
-
