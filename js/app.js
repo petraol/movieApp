@@ -84,9 +84,9 @@ movieApp.config(['$routeProvider',
         templateUrl: 'partials/header2.html',
         controller: 'header2Ctrl'
       }).
-      when('/friendspage', {
-        templateUrl: 'partials/friendspage.html',
-        controller: 'friendspageCtrl'
+      when('/friendsMovieList/:userName', {
+        templateUrl: 'partials/friendsMovieList.html',
+        controller: 'friendsMovieListCtrl'
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({

@@ -1,33 +1,39 @@
 movieApp.controller('friendspageCtrl', function ($scope,$routeParams,Movie,$cookies,$location,$window) {
 
-	$scope.friendUsername = $routeParams.realname;
+	$scope.userName = $routeParams.userName;
 	// Movie.setFriend(user.username);
 	// var theFriend = getFriend();
 
-	console.log($scope.friendUsername);
+	console.log($scope.userName);
 
-		if (username === "") {
+		if ($scope.userName === "") {
 			$window.location.assign('#!/oops');
-			console.log(username, "jag är här");
+			console.log($scope.userName, "jag är här");
 		}
 		//
-		// firebase.database().ref('/users/').on('value', function(snapshot) {
-		// 	console.log(snapshot);
-		// 	snapshot.forEach(function(childSnapshot) {
-		// 	$scope.friendList.push(childSnapshot.val());
-		// 	console.log(childSnapshot.val());
-		// });
-		// });
-		//
-		//
+	firebase.database().ref('/users/').on('value', function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			if (childSnapshot.child("realname").val() === $scope.userName) {
+				console.log(childSnapshot.child("realname").val())
+				$scope.$evalAsync(function() {
 
-		//
-		// 			//$scope.namelist.push(childSnapshot.child('realname').val())
-		// $scope.list.push(childSnapshot.val());
-		// 			//console.log(childSnapshot.val())
-		// 			//console.log($scope.list)
+		  			$scope.name = function() {
+			  			return childSnapshot.val().realname;
+			  		}
+			  		$scope.image = function() {
+			  			return childSnapshot.val().profile_picture;
+			   		}
+			  		$scope.snack = function() {
+			  			return childSnapshot.val().snack;
+			  		}
+	   			});
 
-		});
+			}
+
+	  	});
+
+	});
+});
 
 	//
 	// //var userName = Movie.user;
