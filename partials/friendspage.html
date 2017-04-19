@@ -18,8 +18,10 @@
 	<div id="movieList" class="col-sm-12" style="text-align: left; font-size: 15pt; margin-top: 50px;">
 		<div style="margin-top:20px; margin-bottom:50px;">
 			<div style="list-style-type:none" ng-repeat="movie in list" class="col-sm-2">
-			<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" height="210px" width="140px">
-			<div ng-click="check(movie.id)" style="{{dict[movie.id]}}; text-align: center;">{{movie.title}}<br/></div>
+			<a ng-href="#!/movieInfo/{{movie.id}}">
+				<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" height="210px" width="140px">
+				<div style="text-align: center;">{{movie.title}}<br/></div>
+			</a>
 			</div>
 		</div>
 	</div>
