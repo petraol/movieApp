@@ -10,12 +10,6 @@
 }
 </style>
 
-<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <p ondragstart="dragStart(event)" draggable="true" id="dragtarget">Drag me!</p>
-</div>
-
-<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
 <div style="text-align: center; font-size: 15pt;">
   <img ng-src="{{image()}}" id="profilepic"
   style="height:300px; width:300px; display:block; margin:auto;"></br>
@@ -25,6 +19,7 @@
   <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5;"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></div>
 
 <script>
+
 function dragStart(event) {
     event.dataTransfer.setData("Text", event.target.id);
 }
@@ -36,6 +31,29 @@ function allowDrop(event) {
 function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("Text");
-    event.target.appendChild(document.getElementById(data));
+    console.log(data);
+    add(data);
 }
+
+function add(data) {
+	datalist = data.split(",");
+	console.log(datalist[0]);
+	console.log(datalist[1]);
+		firebase.database().ref('/movieLists/' + datalist[1] + "/movie").once('value', function(snapshot) {
+			snapshot.forEach(function(childSnapshot) {
+				var key = childSnapshot.key;
+				var movieId = parseInt(childSnapshot.child('movie').val());
+				if (datalist[0] === movieId) { 
+					console.log('already in list! Removing dublette');
+					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
+					return;
+				}
+			});
+		});
+		console.log('added movie to database')
+		firebase.database().ref('movieLists/' + datalist[1] + "/movie").push().set({
+			movie: datalist[0],
+			checked: false
+		})
+	}
 </script>

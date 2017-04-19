@@ -4,6 +4,7 @@ $('#loading').hide(); // Hiding loading gif
 		Movie.MovieSearch.get({query:movieQuery},
 			function(data) {
 				$scope.searchResults = data.results;
+				$scope.currentUser = Movie.getCurrentUser();
 				Movie.currentSearch = data.results;
 				Movie.removeCurrentMovie();
 
