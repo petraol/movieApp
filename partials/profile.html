@@ -1,15 +1,4 @@
 <!--PROFILE-->
-<style>
-.droptarget {
-    float: left;
-    width: 100px;
-    height: 35px;
-    margin: 15px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-}
-</style>
-
 <div style="text-align: center; font-size: 15pt;">
   <img ng-src="{{image()}}" id="profilepic" style="height:220px; width:220px; display:block; margin:auto;"></br>
   <div style="font-size: 60px"> {{name()}} </div>
@@ -68,5 +57,4 @@ function add(data) {
 		$('#checksign').hide();
 		}, delayMillis);
 	}
-
 </script>

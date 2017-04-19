@@ -16,7 +16,7 @@
 	</form>
 
 	<div class="col-sm-4" ng-repeat="movie in searchResults" style="margin-top:7%; height: 400px; opacity: 1; cursor:move">
-		<a ng-href="#!/movieInfo/{{movie.id}}"> 
+		<a ng-href="#!/movieInfo/{{movie.id}}">
 		<img src="https://image.tmdb.org/t/p/w1280{{movie.poster_path}}" id={{currentUser}}
 		alt="http://i.imgur.com/SSuPNLC.png" height="300px" width="200px" draggable="true" ondragstart="handleDragStart(event)" class='{{movie.id}}'/></br>
 		<h3 style="text-align: center;">{{movie.title}}</h3></a></div>
