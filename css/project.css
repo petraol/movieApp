@@ -42,10 +42,13 @@ div {
 
 }
 
+#interested {
+    align: middle;
+}
+
 #settings {
     position: relative;
-    right: 200px;
-    top: 12px;
+    bottom: 1px;
 }
 
 #check {
