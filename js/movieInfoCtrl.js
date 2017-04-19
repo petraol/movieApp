@@ -16,6 +16,10 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				$("#heart").hide();
 				$("#nopeheart").show();
 			}
+			if ($scope.movieId != movieId) {
+				$("#heart").show();
+				$("#nopeheart").hide();
+			}
 			});
 		});
 
