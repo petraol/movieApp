@@ -1,8 +1,8 @@
 <!--PROFILE-->
 <style>
 .droptarget {
-    float: left; 
-    width: 100px; 
+    float: left;
+    width: 100px;
     height: 35px;
     margin: 15px;
     padding: 10px;
@@ -11,18 +11,23 @@
 </style>
 
 <div style="text-align: center; font-size: 15pt;">
-  <img ng-src="{{image()}}" id="profilepic"
-  style="height:300px; width:300px; display:block; margin:auto;"></br>
-  <h2>{{name()}}</h2>
-  <b style="font-size: 15px">Favorite snack: {{snack()}}</br></br></b>
+  <img ng-src="{{image()}}" id="profilepic" style="height:220px; width:220px; display:block; margin:auto;"></br>
+  <div style="font-size: 60px"> {{name()}} </div>
+  <div style="font-size: 15px"><b>Favorite snack:</b> {{snack()}}</br></br></div>
   <div id='findme'>
-	  <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='18px' width='18px'/><a href="#!/movieList"> My Movielist </a><image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' class="flipimg" height='18px' width='18px'/></br>
-	  <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5; font-size: 15px"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></br>Drop a movie poster here</br> to add it to your list</div>
-	   <div id="checksign" style="opacity: 0.5; font-size: 15px; display:none"><img src="http://i.imgur.com/DQJo9VL.png" height="140px" width="140px"></br>Added movie!</div>
+	  <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='18px' width='18px'/>
+    <a href="#!/movieList"> My Movielist </a>
+    <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' class="flipimg" height='18px' width='18px'/></br>
+    <div id="drag-drop">
+      <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5; font-size: 15px">
+      <img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></br>Drop a movie poster here</br> to add it to your list</div>
+	    <div id="checksign" style="opacity: 0.5; font-size: 15px; display:none"><img src="http://i.imgur.com/DQJo9VL.png" height="140px" width="140px"></br>Added movie!</div>
+    </div>
   </div>
 </div>
 
 <script>
+
 
 function dragStart(event) {
     event.dataTransfer.setData("Text", event.target.id);
@@ -45,7 +50,7 @@ function add(data) {
 			snapshot.forEach(function(childSnapshot) {
 				var key = childSnapshot.key;
 				var movieId = parseInt(childSnapshot.child('movie').val());
-				if (parseInt(datalist[0]) === movieId) { 
+				if (parseInt(datalist[0]) === movieId) {
 					console.log('already in list! Removing dublette');
 					firebase.database().ref('movieLists/' + datalist[1] + "/movie/" + key).remove();
 					return;
@@ -65,4 +70,5 @@ function add(data) {
 		$('#checksign').hide();
 		}, delayMillis);
 	}
+
 </script>
