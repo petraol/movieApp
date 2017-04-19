@@ -7,13 +7,21 @@
 
 <div class="col-sm-7">
 <form>
-	<h4>Change your display name: </h4><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"/>
+	<h4>Change your display name: </h4><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"></input>
 
 	<h4>Change your image url: </h4><input type="text" class="image" id="round" ng-model="img" placeholder="{{image()}}"/>
 
 	<h4>Change your favorite snack: </h4><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
 
-	<h3><input ng-click="edit(nem,img,sneck)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
+	<h4>Change your password: </h4><input type="text" class="pass" id="round" ng-model="pess" placeholder="{{password()}}"/>
+
+	<h4>Enter your new password one more time: </h4><input type="text" class="pass2" id="round" ng-model="pess2" value="{{password()}}"/>
+
+	<div id="errormatch" style="display:none;">Your passwords did not match! Try again!</div>
+	<div id="errorempty" style="display:none;">Password field is empty!</div>
+	<div id="success" style="display:none;">Updates successful!</div>
+
+	<h3><input ng-click="edit(nem,img,sneck,pess,pess2)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
 </form>
 </div>
 </div>

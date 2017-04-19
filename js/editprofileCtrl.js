@@ -23,19 +23,32 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   		});
   	});
 
-  	$scope.edit = function(realname,image,snack) {
+  	$scope.edit = function(realname,image,snack,pass,pass2) {
   		console.log(realname);
   		console.log(image);
   		console.log(snack);
+      if (pass === pass2) {
   		postEdit = {
   			realname: realname,
   			profile_picture: image,
   			snack: snack,
+        password: pass
   		};
+      
+      $("#errorempty").hide();
+      $("#errormatch").hide();
+      $("#success").show();
 
   		var updates = {};
   		updates['/users/' + username] = postEdit;
   		return firebase.database().ref().update(updates);
   	}
+    else if (pass === null) {
+      $("#errorempty").show();
+    }
+    else if (pass != pass2) {
+      $("#errormatch").show();
+    }
+    }
 
 });
