@@ -1,16 +1,16 @@
 html {
     background: url(http://i.imgur.com/L3G2Af2.jpg) center center fixed transparent;
     -webkit-background-size: cover;
-    -moz-background-size:cover;
+    -moz-background-size: cover;
     -o-background-size: cover;
-    background-size:cover;
-    background-position:absolute;
+    background-size: cover;
+    background-position: absolute;
     background-repeat: repeat-y;
 }
 
 body {
     background-color: rgba(0, 0, 0, 0);
-    background-size:cover;
+    background-size: cover;
     font-family: 'Avenir Next';
     color: white;
 }
@@ -24,7 +24,7 @@ h2 {
 }
 
 input {
-    color:black;
+    color: black;
 }
 
 div {
@@ -127,16 +127,6 @@ a:active {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.dropdown-content2 {
-    display: none;
-    position: absolute;
-    background-color: white;
-    opacity: 0.5;
-    min-width: 1000px;
-    min-height: 100px
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
 
 /* Links inside the dropdown */
 .dropdown-content a {
@@ -146,12 +136,6 @@ a:active {
     display: block;
 }
 
-.dropdown-content2 a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
 /* Show the dropdown menu on hover */
@@ -159,39 +143,24 @@ a:active {
     display: block;
 }
 
-.dropdown-content2 a:hover {background-color: #f1f1f1}
-/* Show the dropdown menu on hover */
-.dropdown2:hover .dropdown-content2 {
-    display: block;
-}
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: black;
 }
 
-.dropdown2:hover .dropbtn {
-    background-color: black;
-}
-
-#loading {
-    position: absolute;
-    width: 115%;
-    height: 80%;
-    background: url('loading.gif') no-repeat center center;
-    background-size: 350px;
-}
-
 #imgid {
 -webkit-animation-name: cssAnimation;
--webkit-animation-duration:1s;
+-webkit-animation-duration: 1s;
 -webkit-animation-iteration-count: 1;
 -webkit-animation-timing-function: ease;
 -webkit-animation-fill-mode: forwards;
 }
+
 @-webkit-keyframes cssAnimation {
 from {
 -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(0px);
 }
+
 to {
 -webkit-transform: rotate(360deg) scale(1) skew(180deg) translate(0px);
 }
@@ -222,7 +191,7 @@ to {
 }
 
 .container2 {
-  width:100%;
-  height:auto;
-  padding:1%;
+  width: 100%;
+  height: auto;
+  padding: 1%;
 }

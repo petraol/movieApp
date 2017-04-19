@@ -69,6 +69,7 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 		$scope.pictureDict = {};
 		snapshot.forEach(function(childSnapshot) {
 			var movieId = parseInt(childSnapshot.child('movie').val());
+			console.log(movieId);
 			var movieChecked = childSnapshot.child('checked').val();
 			
 			if (movieChecked === true) {
