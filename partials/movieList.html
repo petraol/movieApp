@@ -6,7 +6,7 @@
 		<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
 	</div>
 	<div id="movieList">
-		<div class="col-sm-7" style="text-align: left; font-size: 20pt;">
+		<div class="col-sm-7" style="text-align: left; font-size: 15pt;">
 		<h2>My must-see list</h2>
 		<div style="font-size:15px;">Here's your movie bucketlist. </br> </br>
 		You can click <image src="https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png" height='15px' width='15px'/> to mark the movie as seen. </br>
@@ -17,8 +17,8 @@
 				<div style="list-style-type:none" ng-repeat="movie in list">
 					<div>
 						<li style="{{dict[movie.id]}}">
-							<div ng-click="check(movie.id)" style="display: inline-block;"><image id="check" src='{{pictureDict[movie.id]}}' height='25px' width='25px'/></div> 
-							&nbsp; {{movie.title}} 
+							<div ng-click="check(movie.id)" style="display: inline-block;"><image id="check" src='{{pictureDict[movie.id]}}' height='25px' width='25px'/></div>
+							&nbsp; {{movie.title}}
 							<a ng-href="#!/movieInfo/{{movie.id}}"><image id="check" src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='25px' width='25px'></image>
 							</a>  &nbsp;
 							<a ng-click="remove(movie.id)"><image id="check" src='http://www.bushundarna.se/wp-content/uploads/2015/12/kryss.png' height='25px' width='25px'/></a>
