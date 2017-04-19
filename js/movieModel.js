@@ -1,5 +1,5 @@
-movieApp.factory('Movie', function ($resource, $cookies) {
 
+angular.('movieApp').service('Movie', function ($resource, $cookies)
 
 this.movies = [];
 this.allUsers = []
