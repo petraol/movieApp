@@ -42,7 +42,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				}
 				var html = "<div id='movieInfo'><h2>" + data.title + "</h2></br><div class='col-sm-5'><img src='https://image.tmdb.org/t/p/w1280" + data.poster_path +
 				 "' alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>" + data.overview +"</br></br><b>Original Language: </b>"
-				 + data.original_language +"</br></br><b>Average Grade: </b>"+data.vote_average+"/10 from "+data.vote_count+
+				 + language +"</br></br><b>Average Grade: </b>"+data.vote_average+"/10 from "+data.vote_count+
 				 " voters</br></br></div>"
 
 				document.getElementById('movieInfo').innerHTML = html 
@@ -53,7 +53,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 	//Om vi inte har en film sparad i cookien, leta istället i sökningen vi nyss gjorde och plocka ut den därifrån
 	else {
-		console.log("Här kommer vi ingen vart nu");
 	for (movie in Movie.currentSearch) {
 		//console.log(Movie.currentSearch[movie].id);
 		//console.log($scope.movieId);
@@ -69,7 +68,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 			var html = "<div id='movieInfo'><h2>" + movie.title + "</h2></br><div class='col-sm-5'><img src='https://image.tmdb.org/t/p/w1280" + movie.poster_path +
 			 "' alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>" + movie.overview +"</br></br><b>Original Language: </b>"
-			 + movie.original_language +"</br></br><b>Average Grade: </b>"+movie.vote_average+"/10 from "+movie.vote_count+
+			 + movie.original_language +"</br></br><b>Average Rating: </b>"+movie.vote_average+"/10 from "+movie.vote_count+
 			 " voters</br></br></div>"
 
 			document.getElementById('movieInfo').innerHTML = html 

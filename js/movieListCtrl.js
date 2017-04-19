@@ -3,6 +3,10 @@ movieApp.controller('movieListCtrl', function ($scope,Movie,$cookies) {
 	//var userName = Movie.user;
 	var userName = Movie.getCurrentUser();
 
+	$scope.setCurrent = function(movieId) {
+		Movie.setCurrentMovie(movieId);
+	}
+
 	firebase.database().ref('/movieLists/' + userName + "/movie").on("value", function(snapshot) {
 		console.log(snapshot.val());
 			}, function (errorObject) {

@@ -1,15 +1,18 @@
 <div class="container">
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
-<div class="col-sm-5""><ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include></div>
 
-<div class="col-sm-7">	
+<div class="col-sm-5">
+	<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
+</div>
+
+<div class="col-sm-7">
 <form>
 	<h4>Change your display name: </h4><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"/>
-	
+
 	<h4>Change your image url: </h4><input type="text" class="image" id="round" ng-model="img" placeholder="{{image()}}"/>
-	
+
 	<h4>Change your favorite snack: </h4><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
-	
+
 	<h3><input ng-click="edit(nem,img,sneck)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
 </form>
 </div>
