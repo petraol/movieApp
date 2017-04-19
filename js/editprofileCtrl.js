@@ -34,7 +34,6 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   			snack: snack,
         password: pass
   		};
-      
       $("#errorempty").hide();
       $("#errormatch").hide();
       $("#success").show();
@@ -43,12 +42,6 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   		updates['/users/' + username] = postEdit;
   		return firebase.database().ref().update(updates);
   	}
-    else if (pass === null) {
-      $("#errorempty").show();
-    }
-    else if (pass != pass2) {
-      $("#errormatch").show();
-    }
     }
 
 });
