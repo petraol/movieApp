@@ -13,10 +13,11 @@
 <div style="text-align: center; font-size: 15pt;">
   <img ng-src="{{image()}}" id="profilepic"
   style="height:300px; width:300px; display:block; margin:auto;"></br>
-  <h3>{{name()}}</h3></br>
-  <b>Favorite snack: </b>{{snack()}}</br></br>
-  <a href="#!/movieList">My Movielist</a>
-  <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5;"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></div>
+  <h2>{{name()}}</h2>
+  <b style="font-size: 15px">Favorite snack: {{snack()}}</br></br></b>
+  <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='18px' width='18px'/><a href="#!/movieList"> My Movielist </a><image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' class="flipimg" height='18px' width='18px'/></br>
+  <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5; font-size: 15px"><img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></br>Drop a movie poster here</br> to add it to your list</div>
+   <div id="checksign" style="opacity: 0.5; font-size: 15px; display:none"><img src="http://i.imgur.com/DQJo9VL.png" height="140px" width="140px"></br>Added movie!</div>
 
 <script>
 
@@ -37,8 +38,6 @@ function drop(event) {
 
 function add(data) {
 	datalist = data.split(",");
-	console.log(datalist[0]);
-	console.log(datalist[1]);
 		firebase.database().ref('/movieLists/' + datalist[1] + "/movie").once('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				var key = childSnapshot.key;
