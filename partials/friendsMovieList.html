@@ -1,31 +1,10 @@
 <!-- Movielist -->
 <div class="container">
-<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
+	<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
 	<div class="col-sm-5" style="margin-top: 50px;">
 		<ng-include src="'partials/friendspage.html'" ng-controller="friendspageCtrl"></ng-include>
 	</div>
-	<div id="movieList">
-		<div class="col-sm-7" style="text-align: left; font-size: 20pt;">
-		<h2>My must-see list</h2>
-		<div style="font-size:15px;">Here's your movie bucketlist. </br> </br>
-		You can click <image src="https://2.bp.blogspot.com/-EDwBC1yiZkw/VyCJOAB9qLI/AAAAAAAACTQ/uB9Nu_VdcbEV-ZDapZDBEStaB0SAralzQCLcB/s1600/ring3.png" height='15px' width='15px'/> to mark the movie as seen. </br>
-		You can click <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='15px' width='15px'/> to learn more about the movie.</br>
-		Or you can click <image id="check" src='http://www.bushundarna.se/wp-content/uploads/2015/12/kryss.png' height='15px' width='15px'/> to delete the movie from your list</div>
 
-			<div style="margin-top:30px" style="margin-bottom:50px;">
-				<div style="list-style-type:none" ng-repeat="movie in list">
-					<div>
-						<li style="{{dict[movie.id]}}">
-							<div style="display: inline-block;"><image id="check" src='{{pictureDict[movie.id]}}' height='25px' width='25px'/> &nbsp; {{movie.title}} 
-							</div>
-							<a ng-href="#!/movieInfo/{{movie.id}}"><image id="check" src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='25px' width='25px'></image>
-							</a>
-						<br/></li>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	<div id="movieList"></div>
 </div>
