@@ -30,7 +30,7 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   		postEdit = {
   			realname: realname,
   			profile_picture: image,
-  			snack: snack
+  			snack: snack,
   		};
 
   		var updates = {};
