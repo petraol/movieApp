@@ -1,5 +1,9 @@
 movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location,$window) {
 
+  $scope.errorempty = false;
+  $scope.errormatch = false;
+  $scope.success = false;
+
 	var username = Movie.getCurrentUser();
 
   if (username == "") {
@@ -28,19 +32,17 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
 
   	$scope.passedit = function(pass,pass2) {
 
-      console.log(pass);
-
-    if (pass === undefined || pass2 === undefined) {
-      $("#errorempty").show();
-      $("#errormatch").hide();
-      $("#success").hide();
+    if (!pass || !pass2) {
+      $scope.errorempty = true;
+      $scope.errormatch = false;
+      $scope.success = false;
     }
 
     else if (pass === pass2) {
 
-      $("#errorempty").hide();
-      $("#errormatch").hide();
-      $("#success").show();
+      $scope.errorempty = false;
+      $scope.errormatch = false;
+      $scope.success = true;
 
       newData = {
         realname: $scope.name(),
@@ -54,9 +56,9 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
       return firebase.database().ref().update(update);
   	}
     else if (pass != pass2) {
-      $("#errormatch").show();
-      $("#success").hide();
-      $("#errorempty").hide();
+      $scope.errorempty = false;
+      $scope.errormatch = true;
+      $scope.success = false;
     }
     }
 
