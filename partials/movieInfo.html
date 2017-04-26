@@ -3,12 +3,12 @@
 
 <div id="movieInfo"></div>
 
-		<div class='col-sm-2' id='heart' style="text-align:left;">
+		<div class='col-sm-2' ng-show="heart" style="text-align:left;">
 			<a style='color: #e74c3c;' ng-click="add()">
 				<img src='http://i.imgur.com/EQWK9jp.png' height='100px' width='100px'/></br><b>Add to my list</b></a>
 		</div>
 
-		<div class="col-sm-3" id="nopeheart" style="text-align:left;">
+		<div class="col-sm-3" ng-show="nopeHeart" style="text-align:left;">
 			<a style='color: white;' ng-click="delete()">
 				<b>Remove from my list</b></a>
 		</div>
