@@ -27,7 +27,6 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 			  		$scope.$apply($scope.loginerror = true);
 			  		console.log($scope.loginerror);
 			  		console.log("Fel lösenord eller användarnamn!")
-			  		ret
 			  	}
 			
 		Movie.currentuser = username;
