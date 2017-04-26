@@ -6,20 +6,20 @@ $('#loading').hide(); // Hiding loading gif
 			function(data) {
 
 
-				$scope.searchPosterResults = data.results;
-				console.log(data.results)
-				for (poster in data.results.post_path) {
-					console.log(poster)
-					if($scope.searchPosterResults === undefined) {
-						$scope.searchPosterResults = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
+				//$scope.searchPosterResults = data.poster_path;
+				for (poster in data.poster_path) {
+					
+					if(poster === undefined) {
+						$scope.poster = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
+						console.log($scope.poster)
 					} 
 					else {
-						$scope.searchPosterResults = data.results;
-	   				 // Object is NOT empty
+						$scope.poster = data.poster_path;
+						console.log($scope.poster)
 					}
 				}
 				
-				//$scope.searchResults = data.results;
+				$scope.searchResults = data.results;
 				$scope.currentUser = Movie.getCurrentUser();
 				Movie.currentSearch = data.results;
 				Movie.removeCurrentMovie();
