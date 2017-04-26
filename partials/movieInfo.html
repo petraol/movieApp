@@ -1,7 +1,7 @@
 <div class="container">
 <ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
-<div id="movieInfo"></div>
+<div id='movieInfo'><h2>{{title}}</h2></br><div class='col-sm-5'><img src={{poster}} alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>{{overview}}</br></br><b>Original Language: </b>{{language}}</br></br><b>Average Rating: </b>{{vote_average}}/10 {{vote_count}} voters</br></br></div>
 
 		<div class='col-sm-2' ng-show="heart" style="text-align:left;">
 			<a style='color: #e74c3c;' ng-click="add()">
