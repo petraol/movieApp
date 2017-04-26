@@ -27,6 +27,7 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   		console.log(realname);
   		console.log(image);
   		console.log(snack);
+      console.log(pass);
       if (pass === pass2) {
   		postEdit = {
   			realname: realname,
@@ -42,6 +43,12 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
   		updates['/users/' + username] = postEdit;
   		return firebase.database().ref().update(updates);
   	}
+    else if (pass === undefined || pass2 === undefined) {
+      $("#errorempty").show();
+    }
+    else if (pass != pass2) {
+      $("#errormatch").show();
+    }
     }
 
 });
