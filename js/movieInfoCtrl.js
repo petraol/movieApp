@@ -2,27 +2,35 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 	$scope.movieId = Number($routeParams.movieId);
 	var currentUser = Movie.getCurrentUser();
+	
 
 	if ($scope.currentUser == "") {
 		$window.location.assign('#!/oops');
 	}
 
-	$("#heart").show();
-	$("#nopeheart").hide();
+	//$("#heart").show();
+	//$("#nopeheart").hide();
 
 	// Check if it's already in the users movielist. If it is, remove the heart-button.
 	firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
+		$scope.heart = true;
+		$scope.nopeHeart = false;
 		snapshot.forEach(function(childSnapshot) {
 			var key = childSnapshot.key;
 			var movieId = Number(childSnapshot.child('movie').val());
 
 			console.log('the ids', movieId, $scope.movieId)
 			if (movieId === $scope.movieId) {	
-				$("#heart").hide();
-				$("#nopeheart").show();
+				$scope.heart = false;
+				$scope.nopeHeart = true;
+				
+				//$("#heart").hide();
+				//$("#nopeheart").show();
 			}
 		});
 	});
+
+	console.log($scope.heart)
 
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
@@ -103,8 +111,8 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			});
 		});
 		console.log('added movie to database')
-		$("#heart").hide();
-		$("#nopeheart").show();
+		$scope.heart = false;
+		$scope.nopeHeart = true;
 		firebase.database().ref('movieLists/' + currentUser + "/movie").push().set({
 			movie: $scope.movieId,
 			checked: false
@@ -118,8 +126,11 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				var movieId = parseInt(childSnapshot.child('movie').val());
 				if ($scope.movieId === movieId) {
 					console.log('removing key:', key, 'with id', movieId)
-					$("#nopeheart").hide();
-					$("#heart").show();
+
+					$scope.heart = true;
+					$scope.nopeHeart = false;
+					//$("#nopeheart").hide();
+					//$("#heart").show();
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 				}
 			});
