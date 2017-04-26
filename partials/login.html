@@ -7,15 +7,16 @@
 	<div class="col-sm-4">
 			<form style='text-align: center';>
 			  Username:</br>
-			  <input ng-model="username" type="text" name="username" value="">
+			  <input ng-model="username" required type="text" name="username" value="">
 			  </br></br>
 			  Password:</br>
 			  <input ng-model="password" type="password" name="password" value="">
 			  <br>
 			</form>
-			<div class="col-sm-12" ng-show="loginerror == 'active'" style= "text-align: center;"></br>The password or username </br>you entered was incorrect.</div>
+			<div class="col-sm-12" ng-show="loginerror" style= "text-align: center;"></br>The password or username </br>you entered was incorrect.</div>
+			<div class="col-sm-12" ng-show="usererror" style= "text-align: center;"></br>There is no user </br>with that username.</div>
 			</br></br></br></br>
-			<a ng-click="login(username, password)" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Login</h4></a>
+			<a ng-click="fetchinfo(username, password)" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Login</h4></a>
 	</div>
 	<div class="col-sm-4"></div>
 	</div>
