@@ -29,17 +29,6 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 				console.log(username);
 				console.log(allUsers);
 
-				// if (username || password || realname || snack || imageUrl) {
-				// 	// console.log(password);
-				// 	// console.log(realname);
-				// 	// console.log(snack);
-				// 	// console.log(imageUrl);
-				// 	// console.log(username);
-				// 	console.log("Något fält är en tom sträng");
-				// 	$("#infoenter").show();
-				// 	$("#usernameerror").hide();
-				// }
-
 				if (allUsers.includes(username)) {
 					console.log("Nu stötte den på ett namn som redan finns i databasen")
 					$("#infoenter").hide();
