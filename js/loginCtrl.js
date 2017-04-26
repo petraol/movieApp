@@ -1,18 +1,22 @@
 movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$window) {
 
 	$scope.loginerror = false;
+	$scope.usererror = false;
 
-	$scope.login = function(username, password) {
-		return firebase.database().ref('/users/' + username).on('value', function(snapshot) {
-
-			if (snapshot.val() == null) {
-				console.log("Fel lösenord eller användarnamn!")
-				$scope.loginerror = true;
-			}
-
+	$scope.fetchinfo = function(username, password) {
+		firebase.database().ref('/users/' + username).on('value', function(snapshot) {
+			if (snapshot.val() != null) {
+				$scope.login(username, snapshot.val().password, password);
+				}
 			else {
+				$scope.$apply($scope.usererror = true);
+			}
+		});
+	}
 
-				if (snapshot.val().password === password) {
+	$scope.login = function(username, dbpassword, password) {
+
+				if (dbpassword === password) {
 			  		Movie.currentUser = username;
 			  		Movie.setCurrentUser(username);
 			  		Movie.getCurrentUser();
@@ -20,12 +24,12 @@ movieApp.controller('loginCtrl', function ($scope,Movie,$cookies,$location,$wind
 			  		$window.location.assign('#!/movieSearch');
 			  	}
 			  	else {
-			  		$scope.loginerror = true;
+			  		$scope.$apply($scope.loginerror = true);
+			  		console.log($scope.loginerror);
 			  		console.log("Fel lösenord eller användarnamn!")
+			  		ret
 			  	}
-			  }
 			
-		});
 		Movie.currentuser = username;
 	}
 });
