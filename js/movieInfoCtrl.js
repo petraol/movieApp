@@ -18,15 +18,16 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		snapshot.forEach(function(childSnapshot) {
 			var key = childSnapshot.key;
 			var movieId = Number(childSnapshot.child('movie').val());
-
-			console.log('the ids', movieId, $scope.movieId)
-			if (movieId === $scope.movieId) {	
-				$scope.heart = false;
-				$scope.nopeHeart = true;
-				
-				//$("#heart").hide();
-				//$("#nopeheart").show();
-			}
+			$scope.$evalAsync(function() {
+				console.log('the ids', movieId, $scope.movieId)
+				if (movieId === $scope.movieId) {	
+					$scope.heart = false;
+					$scope.nopeHeart = true;
+					
+					//$("#heart").hide();
+					//$("#nopeheart").show();
+				}
+			});
 		});
 	});
 
@@ -111,8 +112,10 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			});
 		});
 		console.log('added movie to database')
-		$scope.heart = false;
-		$scope.nopeHeart = true;
+		$scope.$evalAsync(function() {
+			$scope.heart = false;
+			$scope.nopeHeart = true;
+		});
 		firebase.database().ref('movieLists/' + currentUser + "/movie").push().set({
 			movie: $scope.movieId,
 			checked: false
@@ -126,9 +129,10 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				var movieId = parseInt(childSnapshot.child('movie').val());
 				if ($scope.movieId === movieId) {
 					console.log('removing key:', key, 'with id', movieId)
-
-					$scope.heart = true;
-					$scope.nopeHeart = false;
+					$scope.$evalAsync(function() {
+						$scope.heart = true;
+						$scope.nopeHeart = false;
+					});
 					//$("#nopeheart").hide();
 					//$("#heart").show();
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
