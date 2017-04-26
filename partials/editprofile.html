@@ -5,23 +5,30 @@
 	<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
 </div>
 
-<div class="col-sm-7">
+<div class="col-sm-7"><h3>Change your basic profile info</h3></br>
 <form>
-	<h4>Change your display name: </h4><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"></input>
+	<h5>Change your display name: </h5><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"></input>
 
-	<h4>Change your image url: </h4><input type="text" class="image" id="round" ng-model="img" placeholder="{{image()}}"/>
+	<h5>Change your image url: </h5><input type="text" class="image" id="round" ng-model="img" placeholder="{{image()}}"/>
 
-	<h4>Change your favorite snack: </h4><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
+	<h5>Change your favorite snack: </h5><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
 
-	<h4>Change your password: </h4><input type="text" class="pass" id="round" ng-model="pess" placeholder="{{password()}}"/>
+	<h3><input ng-click="edit(nem,img,sneck)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
+</form>
+<form>
 
-	<h4>Enter your new password one more time: </h4><input type="text" class="pass2" id="round" ng-model="pess2" value="{{password()}}"/>
+	<h3></br>Change your password</h3>
+
+	<h5></br>Change your password: </h5><input type="password" class="pass" id="round" ng-model="pess""/>
+
+	<h5>Enter your new password one more time: </h5><input type="password" class="pass2" id="round" ng-model="pess2"/>
 
 	<div id="errormatch" style="display:none;">Your passwords did not match! Try again!</div>
 	<div id="errorempty" style="display:none;">Password field is empty!</div>
 	<div id="success" style="display:none;">Updates successful!</div>
 
-	<h3><input ng-click="edit(nem,img,sneck,pess,pess2)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
+	<h3><input ng-click="passedit(pess,pess2)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Change password"/></h3>
+
 </form>
 </div>
 </div>
