@@ -82,12 +82,12 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 					language = data.original_language;
 				}
 
-			var html = "<div id='movieInfo'><h2>" + movie.title + "</h2></br><div class='col-sm-5'><img src='https://image.tmdb.org/t/p/w1280" + movie.poster_path +
-			 "' alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>" + movie.overview +"</br></br><b>Original Language: </b>"
-			 + language +"</br></br><b>Average Rating: </b>"+movie.vote_average+"/10 from "+movie.vote_count+
-			 " voters</br></br></div>"
-
-			document.getElementById('movieInfo').innerHTML = html 
+				$scope.title = movie.title;
+				$scope.poster = 'https://image.tmdb.org/t/p/w1280' + movie.poster_path;
+				$scope.overview = movie.overview;
+				$scope.language = language;
+				$scope.vote_average = movie.vote_average;
+				$scope.vote_count = movie.vote_count;
 		}
 	}
 	}
