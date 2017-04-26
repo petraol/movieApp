@@ -1,4 +1,6 @@
 movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$location,$window) {
+	$scope.usernameerror = false;
+	$scope.infoenter = false;
 
 	$scope.create = function(username, realname, password, snack, imageUrl) {
 
@@ -23,7 +25,7 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 						}
 					}
 				});
-				
+
 				allUsers = Movie.allUsers;
 				Movie.allUsers = "";
 				console.log(username);
@@ -31,20 +33,20 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 
 				if (allUsers.includes(username)) {
 					console.log("Nu stötte den på ett namn som redan finns i databasen")
-					$("#infoenter").hide();
-					$("#usernameerror").show();
+					$scope.usernameerror = true;
+					$scope.infoenter = false;
 					return;
 				}
 
 				else {
-				
+
 				try {
 				firebase.database().ref('users/' + username).set({
 					realname: realname,
 				  	password: password,
 				  	snack: snack,
 				  	profile_picture : imageUrl
-				  	}); 
+				  	});
 				console.log("Nu har användaren skapats och vi byter view");
 				$window.location.assign('#!/movieSearch');
 				}
@@ -55,8 +57,8 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 			});
 		}
 	else {
-		$("#infoenter").show();
-		$("#usernameerror").hide();
+		$scope.infoenter = true;
+		$scope.usernameerror = false;
 		return;
 	}
 	}
