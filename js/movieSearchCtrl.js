@@ -1,10 +1,11 @@
 movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
-$('#loading').hide(); // Hiding loading gif
+	$scope.otherpeople = true;
+	
 	$scope.search = function(movieQuery) {
+		$scope.otherpeople = false;
 		Movie.MovieSearch.get({query:movieQuery},
 			
 			function(data) {
-
 
 				//$scope.searchPosterResults = data.poster_path;
 				for (poster in data.poster_path) {
