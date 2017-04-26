@@ -19,7 +19,9 @@
 			  <input ng-model="snack" type="text" name="snack" value="">
 			  <br></br>
 			  Url to Profile Picture:<br>
-			  <input ng-model="image" type="text" name="imageUrl" value="">
+			  <!--<input ng-model="image" type="file" name="imageUrl" value=""> -->
+				<input type="file" id="image" ngf-select ng-model="image" name="file" ngf-pattern="'image/*'"
+    		ngf-accept="'image/*'">
 			  <br>
 			</form>
 
