@@ -17,8 +17,8 @@ $('#loading').hide(); // Hiding loading gif
 								$scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]] = "http://www.newportrams.com/photos/Images/movie%20camera.jpg"
 							}
 							else {
-								$scope.searchPosterPathResultsss = $scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]];
-								console.log($scope.searchPosterPathResultsss);
+								$scope.searchPosterPathElementResults = $scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]];
+								console.log($scope.searchPosterPathElementResults);
 						}
 					}
 				}
