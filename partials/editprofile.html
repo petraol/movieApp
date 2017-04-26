@@ -18,17 +18,29 @@
 <form>
 
 	<h3></br>Change your password</h3>
+<<<<<<< HEAD
+
+	<h5></br>Change your password: </h5><input type="password" class="pass" id="round" ng-model="pess""/>
+
+	<h5>Enter your new password one more time: </h5><input type="password" class="pass2" id="round" ng-model="pess2"/>
+=======
 
 	<h5></br>Change your password: </h5><input type="password" class="pass" id="round" ng-model="pess""/>
 
 	<h5>Enter your new password one more time: </h5><input type="password" class="pass2" id="round" ng-model="pess2"/>
 
-	<div id="errormatch" style="display:none;">Your passwords did not match! Try again!</div>
-	<div id="errorempty" style="display:none;">Password field is empty!</div>
-	<div id="success" style="display:none;">Updates successful!</div>
+	<div ng-show="errormatch">Your passwords did not match! Try again!</div>
+	<div ng-show="errorempty">Password field is empty!</div>
+	<div ng-show="success">Updates successful!</div>
+>>>>>>> c513d6f1edb8f72333fbe77a982be0f4fce67745
 
 	<h3><input ng-click="passedit(pess,pess2)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Change password"/></h3>
 
+<<<<<<< HEAD
+	<h3><input ng-click="passedit(pess,pess2)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Change password"/></h3>
+
+=======
+>>>>>>> c513d6f1edb8f72333fbe77a982be0f4fce67745
 </form>
 </div>
 </div>
