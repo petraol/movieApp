@@ -7,21 +7,22 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		$window.location.assign('#!/oops');
 	}
 
+	$("#heart").show();
+	$("#nopeheart").hide();
+
 	// Check if it's already in the users movielist. If it is, remove the heart-button.
 	firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
 		snapshot.forEach(function(childSnapshot) {
 			var key = childSnapshot.key;
-			var movieId = parseInt(childSnapshot.child('movie').val());
-			if ($scope.movieId === movieId) {
+			var movieId = Number(childSnapshot.child('movie').val());
+
+			console.log('the ids', movieId, $scope.movieId)
+			if (movieId === $scope.movieId) {	
 				$("#heart").hide();
 				$("#nopeheart").show();
 			}
-			if ($scope.movieId != movieId) {
-				$("#heart").show();
-				$("#nopeheart").hide();
-			}
-			});
 		});
+	});
 
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
@@ -40,6 +41,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				else {
 					language = data.original_language;
 				}
+
 				var html = "<div id='movieInfo'><h2>" + data.title + "</h2></br><div class='col-sm-5'><img src='https://image.tmdb.org/t/p/w1280" + data.poster_path +
 				 "' alt='http://i.imgur.com/SSuPNLC.png' height='600px' width='400px'/></div><div class='col-sm-7' style='font-size: 15pt;'><b>Overview: </b>" + data.overview +"</br></br><b>Original Language: </b>"
 				 + language +"</br></br><b>Average Rating: </b>"+data.vote_average+"/10 from "+data.vote_count+
@@ -96,7 +98,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				if ($scope.movieId === movieId) { 
 					console.log('already in list! Removing dublette');
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
-					return;
+					//return;
 				}
 			});
 		});
