@@ -1,9 +1,10 @@
-movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$location,$window) {
+movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$location,$window,Upload) {
 	$scope.usernameerror = false;
 	$scope.infoenter = false;
+	$scope.image = null;
 
 	$scope.create = function(username, realname, password, snack, imageUrl) {
-
+		console.log($scope);
 		console.log("Username: " + username);
 		console.log("Realname: " + realname);
 		console.log("Password: " + password);
