@@ -20,11 +20,19 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$wi
 		  			return snapshot.val().realname;
 		  		}
 		  		$scope.image = function() {
-		  			return snapshot.val().profile_picture;
+		  			var storage = firebase.storage();
+					var pathReference = storage.ref('images/');
+
+					var thingy = pathReference.child('Branschdagenporträtt-2016liten.png').getDownloadURL().then(function(url) {
+						console.log(url);
+						return url;
+					});
+
 		  		}
 		  		$scope.snack = function() {
 		  			return snapshot.val().snack;
 		  		}
+
 	  		});
 
 		});

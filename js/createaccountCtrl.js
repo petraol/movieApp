@@ -3,15 +3,15 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 	$scope.infoenter = false;
 	$scope.image = null;
 
-	$scope.create = function(username, realname, password, snack, imageUrl) {
+	$scope.create = function(username, realname, password, snack, image) {
 		console.log($scope);
 		console.log("Username: " + username);
 		console.log("Realname: " + realname);
 		console.log("Password: " + password);
 		console.log("Snack: " + snack);
-		console.log("Image: " + imageUrl);
+		console.log("Image: " + image);
 
-		if (username && realname && password && snack && imageUrl) {
+		if (username && realname && password && snack && image) {
 
 		Movie.setCurrentUser(username);
 
@@ -46,8 +46,12 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 					realname: realname,
 				  	password: password,
 				  	snack: snack,
-				  	profile_picture : imageUrl
+				  	profile_picture : image.name
 				  	});
+
+				var ref = firebase.storage().ref('images/').child(image.name);
+				ref.put(image);
+
 				console.log("Nu har användaren skapats och vi byter view");
 				$window.location.assign('#!/movieSearch');
 				}
