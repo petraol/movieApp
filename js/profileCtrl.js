@@ -8,7 +8,7 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$wi
 
 		if ( window.location.href === "http://127.0.0.1:8000/#!/movieList") {
 			$("findme").hide();
-			
+
 		}
 
 		console.log("Vid omladdningen var currentUser: " + username)
@@ -29,4 +29,3 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$wi
 
 		});
 });
-
