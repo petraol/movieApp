@@ -25,8 +25,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		});
 	});
 
-	console.log($scope.heart)
-
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
 
@@ -83,7 +81,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				}
 
 				$scope.title = movie.title;
-				$scope.poster = 'https://image.tmdb.org/t/p/w1280' + movie.poster_path;
+				$scope.poster = movie.poster_path;
 				$scope.overview = movie.overview;
 				$scope.language = language;
 				$scope.vote_average = movie.vote_average;
