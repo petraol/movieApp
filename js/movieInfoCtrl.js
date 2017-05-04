@@ -16,7 +16,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			var key = childSnapshot.key;
 			var movieId = Number(childSnapshot.child('movie').val());
 			$scope.$evalAsync(function() {
-				console.log('the ids', movieId, $scope.movieId)
 				if (movieId === $scope.movieId) {
 					$scope.heart = false;
 					$scope.nopeHeart = true;
@@ -24,8 +23,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			});
 		});
 	});
-
-	console.log($scope.heart)
 
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
@@ -63,8 +60,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		//console.log(Movie.currentSearch[movie].id);
 		//console.log($scope.movieId);
 		if (Movie.currentSearch[movie].id === $scope.movieId) {
-			console.log("Här är filmen vi tryckte på:");
-			console.log(Movie.currentSearch[movie]);
 			Movie.currentMovie = Movie.currentSearch[movie];
 
 			Movie.setCurrentMovie(Movie.currentMovie.id);
@@ -83,7 +78,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				}
 
 				$scope.title = movie.title;
-				$scope.poster = 'https://image.tmdb.org/t/p/w1280' + movie.poster_path;
+				$scope.poster = movie.poster_path;
 				$scope.overview = movie.overview;
 				$scope.language = language;
 				$scope.vote_average = movie.vote_average;
@@ -92,7 +87,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 	}
 	}
 
-
 	$scope.add = function() {
 		//Fixa så man inte kan lägga in dubletter!!
 		firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
@@ -100,13 +94,10 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				var key = childSnapshot.key;
 				var movieId = parseInt(childSnapshot.child('movie').val());
 				if ($scope.movieId === movieId) {
-					console.log('already in list! Removing dublette');
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
-					//return;
 				}
 			});
 		});
-		console.log('added movie to database')
 		$scope.$evalAsync(function() {
 			$scope.heart = false;
 			$scope.nopeHeart = true;
@@ -123,18 +114,15 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				var key = childSnapshot.key;
 				var movieId = parseInt(childSnapshot.child('movie').val());
 				if ($scope.movieId === movieId) {
-					console.log('removing key:', key, 'with id', movieId)
 					$scope.$evalAsync(function() {
 						$scope.heart = true;
 						$scope.nopeHeart = false;
 					});
-					//$("#nopeheart").hide();
-					//$("#heart").show();
+
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 				}
 			});
 		});
 	}
-
 
 });
