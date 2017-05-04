@@ -7,54 +7,5 @@
 	  <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' height='18px' width='18px'/>
     <a href="#!/movieList"> My Movielist </a>
     <image src='http://uploads.webflow.com/5734be31b9c50c7e346b24b4/5734be31b9c50c7e346b24f2_Icon-arrow-right-white.png' class="flipimg" height='18px' width='18px'/></br>
-    <div id="drag-drop">
-      <div id="plussign" ondrop="drop(event)" ondragover="allowDrop(event)" style="opacity: 0.5; font-size: 15px">
-      <img src="http://i.imgur.com/lclt0VW.png" height="140px" width="140px"></br>Drop a movie poster here</br> to add it to your list</div>
-	    <div id="checksign" style="opacity: 0.5; font-size: 15px; display:none"><img src="http://i.imgur.com/DQJo9VL.png" height="140px" width="140px"></br>Added movie!</div>
-    </div>
   </div>
 </div>
-
-<script>
-function dragStart(event) {
-    event.dataTransfer.setData("Text", event.target.id);
-}
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function drop(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("Text");
-    console.log(data);
-    add(data);
-}
-
-function add(data) {
-	datalist = data.split(",");
-		firebase.database().ref('/movieLists/' + datalist[1] + "/movie").once('value', function(snapshot) {
-			snapshot.forEach(function(childSnapshot) {
-				var key = childSnapshot.key;
-				var movieId = parseInt(childSnapshot.child('movie').val());
-				if (parseInt(datalist[0]) === movieId) {
-					console.log('already in list! Removing dublette');
-					firebase.database().ref('movieLists/' + datalist[1] + "/movie/" + key).remove();
-					return;
-				}
-			});
-		});
-		console.log('added movie to database')
-		$('#plussign').hide();
-		$('#checksign').show();
-		firebase.database().ref('movieLists/' + datalist[1] + "/movie").push().set({
-			movie: datalist[0],
-			checked: false
-		})
-		var delayMillis = 2000; //1 second
-		setTimeout(function() {
-		$('#plussign').show();
-		$('#checksign').hide();
-		}, delayMillis);
-	}
-</script>
