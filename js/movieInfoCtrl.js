@@ -8,8 +8,6 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		$window.location.assign('#!/oops');
 	}
 
-	//$("#heart").show();
-	//$("#nopeheart").hide();
 
 	// Check if it's already in the users movielist. If it is, remove the heart-button.
 	firebase.database().ref('/movieLists/' + currentUser + "/movie").once('value', function(snapshot) {
@@ -23,15 +21,11 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				if (movieId === $scope.movieId) {	
 					$scope.heart = false;
 					$scope.nopeHeart = true;
-					
-					//$("#heart").hide();
-					//$("#nopeheart").show();
 				}
 			});
 		});
 	});
 
-	console.log($scope.heart)
 
 	//Om vi har en film sparad i cookien, gör en API-sökning efter den filmen och skriv ut detaljerna.
 	if (Movie.getCurrentMovie()) {
@@ -65,8 +59,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 	//Om vi inte har en film sparad i cookien, leta istället i sökningen vi nyss gjorde och plocka ut den därifrån
 	else {
 	for (movie in Movie.currentSearch) {
-		//console.log(Movie.currentSearch[movie].id);
-		//console.log($scope.movieId);
+
 		if (Movie.currentSearch[movie].id === $scope.movieId) {
 			console.log("Här är filmen vi tryckte på:");
 			console.log(Movie.currentSearch[movie]);
@@ -133,8 +126,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 						$scope.heart = true;
 						$scope.nopeHeart = false;
 					});
-					//$("#nopeheart").hide();
-					//$("#heart").show();
+
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 				}
 			});
