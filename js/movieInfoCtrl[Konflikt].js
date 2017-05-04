@@ -2,7 +2,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 
 	$scope.movieId = Number($routeParams.movieId);
 	var currentUser = Movie.getCurrentUser();
-
+	
 
 	if ($scope.currentUser == "") {
 		$window.location.assign('#!/oops');
@@ -17,7 +17,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			var movieId = Number(childSnapshot.child('movie').val());
 			$scope.$evalAsync(function() {
 				console.log('the ids', movieId, $scope.movieId)
-				if (movieId === $scope.movieId) {
+				if (movieId === $scope.movieId) {	
 					$scope.heart = false;
 					$scope.nopeHeart = true;
 				}
@@ -33,7 +33,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 		var movieId = Movie.getCurrentMovie();
 		movieId = parseInt(movieId);
 
-		Movie.getMovie.get({id:$scope.movieId},
+		Movie.getMovie.get({id:$scope.movieId}, 
 			function(data) {
 				if (data.original_language === "en") {
 					language = "English"
@@ -99,7 +99,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 			snapshot.forEach(function(childSnapshot) {
 				var key = childSnapshot.key;
 				var movieId = parseInt(childSnapshot.child('movie').val());
-				if ($scope.movieId === movieId) {
+				if ($scope.movieId === movieId) { 
 					console.log('already in list! Removing dublette');
 					firebase.database().ref('movieLists/' + currentUser + "/movie/" + key).remove();
 					//return;

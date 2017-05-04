@@ -1,29 +1,25 @@
 movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
-$('#loading').hide(); // Hiding loading gif
+	$scope.otherpeople = true;
+
 	$scope.search = function(movieQuery) {
 		$scope.otherpeople = false;
 		Movie.MovieSearch.get({query:movieQuery},
-			
+
 			function(data) {
 
-				$scope.searchPosterResults = data.results;
-					for (elements in $scope.searchPosterResults) {
-						$scope.searchPosterPathResults = $scope.searchPosterResults[Object.keys($scope.searchPosterResults)[elements]]
+				//$scope.searchPosterResults = data.poster_path;
+				for (poster in data.poster_path) {
 
-						for (element in $scope.searchPosterPathResults) {
-
-							if ($scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]] === null) {
-								console.log('Bilden hittades inte');
-								$scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]] = "http://www.newportrams.com/photos/Images/movie%20camera.jpg"
-							}
-							else {
-								$scope.searchPosterPathElementResults = $scope.searchPosterPathResults[Object.keys($scope.searchPosterPathResults)[0]];
-								console.log($scope.searchPosterPathElementResults);
-						}
+					if(poster === undefined) {
+						$scope.poster = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
+						console.log($scope.poster)
+					}
+					else {
+						$scope.poster = data.poster_path;
+						console.log($scope.poster)
 					}
 				}
-		
-				
+
 				$scope.searchResults = data.results;
 				$scope.currentUser = Movie.getCurrentUser();
 				Movie.currentSearch = data.results;
@@ -34,5 +30,13 @@ $('#loading').hide(); // Hiding loading gif
 				console.log("There was an error");
 		});
 	}
+
+	$scope.drag = function(event) {
+		console.log("Startar dragning");
+		thingy = [];
+		thingy.push(event.target.className);
+		thingy.push(event.target.id);
+	    event.dataTransfer.setData("Text", thingy);
+}
 
 });
