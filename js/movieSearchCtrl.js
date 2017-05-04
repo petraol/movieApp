@@ -6,20 +6,24 @@ movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
 		Movie.MovieSearch.get({query:movieQuery},
 
 			function(data) {
+				//$scope.searchMovieObject = data.poster_path;
+				$scope.searchMovieObject = data.results;
 
-				//$scope.searchPosterResults = data.poster_path;
-				for (poster in data.poster_path) {
+				for (elements in $scope.searchMovieObject) {
+					$scope.singelMovieObject = $scope.searchMovieObject[Object.keys($scope.searchMovieObject)[elements]]
 
-					if(poster === undefined) {
-						$scope.poster = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
-						console.log($scope.poster)
+					for (element in $scope.singelMovieObject) {
+
+						if ($scope.singelMovieObject[Object.keys($scope.singelMovieObject)[0]] === null) {
+							$scope.singelMovieObject[Object.keys($scope.singelMovieObject)[0]] = "http://www.newportrams.com/photos/Images/movie%20camera.jpg"
+							break
+							}
+						else {
+							$scope.singelMovieObject[Object.keys($scope.singelMovieObject)[0]] = "https://image.tmdb.org/t/p/w1280"+$scope.singelMovieObject[Object.keys($scope.singelMovieObject)[0]];
+							break
+							}
+						}
 					}
-					else {
-						$scope.poster = data.poster_path;
-						console.log($scope.poster)
-					}
-				}
-
 				$scope.searchResults = data.results;
 				$scope.currentUser = Movie.getCurrentUser();
 				Movie.currentSearch = data.results;
