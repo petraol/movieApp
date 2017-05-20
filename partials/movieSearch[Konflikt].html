@@ -1,0 +1,28 @@
+<div class="container" style="relative">
+<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
+
+<div class="col-sm-5">
+	<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
+</div>
+
+<div id="loading"></div>
+
+<div class="col-sm-7" style="text-align: left; font-size: 20pt;">
+	<form id="search-form">
+		<input type="text" name="search" id="round" ng-model="movieQuery"
+		placeholder="Sök filmer..."/> <input ng-click="search(movieQuery)" type="submit"
+		name="search" class="btn btn-primary"
+		style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Sök"/>
+	</form>
+
+	<div class="col-sm-4" ng-repeat="movie in searchResults" style="margin-top:7%; height: 400px; opacity: 1; cursor:move">
+		<a ng-href="#!/movieInfo/{{movie.id}}">
+		<img src="{{movie.poster_path}}" id={{currentUser}} height="70%" width="100%" class='{{movie.id}}'/></br>
+		<h3 style="text-align: center;">{{movie.title}}</h3></a>
+		</div>
+	</div>
+	<div ng-show="otherpeople" class="col-sm-4" style="bottom: 20px; top: 20px">
+		<h4 style="bottom: 5px">Wondering what other people have on their list?
+		<a href="#!/friends"></br></br> Go to Other users</a></h4>
+	</div>
+</div>

@@ -19,22 +19,16 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$wi
 	  			$scope.name = function() {
 		  			return snapshot.val().realname;
 		  		}
-
 		  		$scope.image = function() {
 		  			var storage = firebase.storage();
 					var pathReference = storage.ref('images/');
 
-					var varurl = pathReference.child('Branschdagenporträtt-2016liten.png').getDownloadURL().then(function(url) {
-						dostuff(url)
-						});
-
-					var dostuff = function(url) {
+					var thingy = pathReference.child('Branschdagenporträtt-2016liten.png').getDownloadURL().then(function(url) {
 						console.log(url);
-						$scope.image = url;
-					}
+						return url;
+					});
 
 		  		}
-
 		  		$scope.snack = function() {
 		  			return snapshot.val().snack;
 		  		}
