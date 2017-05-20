@@ -16,31 +16,32 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 					var pic;
 
 							$scope.image = function() {
+								$scope.picarray = [];
 								for (user in $scope.userlist) {
-								var profileRef = firebase.database().ref("users/" + $scope.userlist[user].key);
-								profileRef.child("profile_picture").once('value', function(snapshot) {
-									pic = snapshot.val();
+									var profileRef = firebase.database().ref("users/" + $scope.userlist[user].key);
+									profileRef.child("profile_picture").once('value', function(snapshot) {
+										pic = snapshot.val();
 
-		
-								});
-								var storage = firebase.storage().ref();
-								var spaceRef = storage.child('images/' + pic);
-								console.log('Här är spaceRef: ' + spaceRef);
-								var path = spaceRef.fullPath;
-								console.log("Här är path: " + path);
-							//	console.log(profileRef.val());
-								//var profileRef = root.(username.profile_picture);
+			
+									});
+									var storage = firebase.storage().ref();
+									var spaceRef = storage.child('images/' + pic);
+									var path = spaceRef.fullPath;
 
-								storage.child(path).getDownloadURL().then(function(url){
-									var image_url = url;
-									console.log("Här är imageURL: " + image_url);
-									document.querySelector("#friend_pic").src = image_url;
 
-								}).catch(function(error) {
-								console.log("error")
-								console.log(error.code);
-								console.log(error.message);
-								});
+									storage.child(path).getDownloadURL().then(function(url){
+										var image_url = url;
+										console.log("Här är imageURL: " + image_url);
+										$scope.picarray.push([image_url + "," + $scope.userlist[user].key]);
+										console.log($scope.picarray)
+
+
+
+									}).catch(function(error) {
+									console.log("error")
+									console.log(error.code);
+									console.log(error.message);
+									});
 						}
 					}
 				}
