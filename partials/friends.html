@@ -7,7 +7,7 @@
 
 	  	<div class="col-sm-12" ng-repeat="user in userlist">
 				<div class="col-sm-6" align="left">
-					<img ng-src="{{image()}}" id="friend_pic" style="height:200px; width:200px; display:block; margin:auto;"></br>
+					<img class="profilepic" ng-src="{{image()}}" style="height:200px; width:200px; display:block; margin:auto;"></br>
 				</div>
 				<div class="col-sm-6" align="text-align: left"></br>
 					<h3><a ng-href="#!/friendsMovieList/{{user.realname}}">{{user.val().realname}}s Movielist </a></h3></br>

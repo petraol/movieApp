@@ -32,9 +32,19 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 									storage.child(path).getDownloadURL().then(function(url){
 										var image_url = url;
 										console.log("Här är imageURL: " + image_url);
-										$scope.picarray.push([image_url + "," + $scope.userlist[user].key]);
-										console.log($scope.picarray)
+										var found = $scope.picarray.includes(image_url);
+										console.log(found);
+										if (found === false) {
+											$scope.picarray.push(image_url);
+										}
+										else {
+											console.log("Den fanns redan, satan");
+										}
 
+									console.log($scope.picarray);
+									for (image in $scope.picarray) {
+										document.querySelector(".profilepic").src = $scope.picarray[image];
+									}
 
 
 									}).catch(function(error) {
@@ -48,5 +58,6 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 		});
 
 });
+
 });
 });
