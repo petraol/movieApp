@@ -68,7 +68,8 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
         realname = $scope.name();
       }
 
-      if (typeof image != 'string') {
+      if (!image) {
+        console.log("Hej " + $scope.image());
         image = $scope.image();
       }
 
@@ -76,11 +77,28 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
         snack = $scope.snack();
       }
 
-      newData = {
-        realname: realname,
-        profile_picture: image,
-        snack: snack,
-        password: $scope.password()
+      console.log($scope.image());
+
+      if (typeof image !== 'string') {
+        var ref = firebase.storage().ref('images/').child($scope.image());
+          ref.delete()
+        var ref = firebase.storage().ref('images/').child(image.name);
+          ref.put(image)
+
+          newData = {
+            realname: realname,
+            profile_picture: image.name,
+            snack: snack,
+            password: $scope.password()
+          }
+        }
+      else {
+        newData = {
+          realname: realname,
+          profile_picture: $scope.image(),
+          snack: snack,
+          password: $scope.password()
+        }
       }
 
       var update = {};

@@ -4,7 +4,6 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 	$scope.image = null;
 
 	$scope.create = function(username, realname, password, snack, image) {
-		console.log($scope);
 		console.log("Username: " + username);
 		console.log("Realname: " + realname);
 		console.log("Password: " + password);
@@ -46,10 +45,12 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 					realname: realname,
 				  	password: password,
 				  	snack: snack,
-				  	profile_picture : image.name
+				  	profile_picture: image.name
 				  	});
 
 				var ref = firebase.storage().ref('images/').child(image.name);
+				console.log(image);
+				console.log(image.name);
 				ref.put(image);
 
 				console.log("Nu har användaren skapats och vi byter view");

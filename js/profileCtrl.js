@@ -35,8 +35,6 @@ var pic;
 						console.log(spaceRef);
 						var path = spaceRef.fullPath;
 						console.log(path);
-					//	console.log(profileRef.val());
-						//var profileRef = root.(username.profile_picture);
 
 								storage.child(path).getDownloadURL().then(function(url){
 									var image_url = url;

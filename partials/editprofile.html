@@ -9,9 +9,10 @@
 <form>
 	<h5>Change your display name: </h5><input type="text" class="realname" id="round" ng-model="nem" placeholder="{{name()}}"></input>
 
-	<h5>Change your image url: </h5><input type="text" class="image" id="round" ng-model="img" placeholder="{{image()}}"/>
-
 	<h5>Change your favorite snack: </h5><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
+
+	<h5>Change your profile picture</br></br>(MAX FILE SIZE: 3 MB, or it may not show): </h5><input type="file" id="image" ngf-select ng-model="img" name="file" ngf-pattern="'image/*'"
+    	ngf-accept="'image/*'">
 
 	<h3><input ng-click="edit(nem,img,sneck)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
 </form>
