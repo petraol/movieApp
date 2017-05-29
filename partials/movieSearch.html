@@ -17,7 +17,7 @@
 
 	<div class="col-sm-4" ng-repeat="movie in searchResults" style="margin-top:7%; height: 400px; opacity: 1; cursor:move">
 		<a ng-href="#!/movieInfo/{{movie.id}}">
-		<img src="{{movie.poster_path}}" id={{currentUser}} height="70%" width="100%" class='{{movie.id}}'/></br>
+		<img ng-src="{{getPoster(movie.id)}}" id={{currentUser}} height="70%" width="100%" class='{{movie.id}}'/></br>
 		<h3 style="text-align: center;">{{movie.title}}</h3></a>
 		</div>
 	</div>

@@ -7,18 +7,28 @@ movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
 
 			function(data) {
 
+				$scope.dict = {};
+				console.log(data)
 				//$scope.searchPosterResults = data.poster_path;
 				//$scope.searchPosterResults = data.poster_path;
-				for (poster in data.poster_path) {
-					
-					if(poster === undefined) {
-						$scope.poster = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
-						console.log($scope.poster)
+				
+				
+				for (poster in data.results) {
+					console.log('skit', poster)
+					if(data.results[poster].poster_path === null) {
+						$scope.dict[data.results[poster].id] = "http://www.dimaria.dk/images/feed/product/filmrulle_s-p.jpg"
+						console.log('reservbild', $scope.poster)
 					} 
 					else {
-						$scope.poster = data.poster_path;
-						console.log($scope.poster)
+						$scope.dict[data.results[poster].id] = 'https://image.tmdb.org/t/p/w1280' + data.results[poster].poster_path;
+						console.log('bilden', $scope.poster)
 					}
+				}
+
+				$scope.getPoster = function(movie) { 
+					console.log('funkar jag', $scope.dict[movie])
+					return $scope.dict[movie];
+					
 				}
 
 				$scope.searchResults = data.results;
