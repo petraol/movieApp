@@ -78,7 +78,7 @@ movieApp.controller('movieInfoCtrl', function ($scope,$routeParams,Movie,$cookie
 				}
 
 				$scope.title = movie.title;
-				$scope.poster = movie.poster_path;
+				$scope.poster = 'https://image.tmdb.org/t/p/w1280' + movie.poster_path;
 				$scope.overview = movie.overview;
 				$scope.language = language;
 				$scope.vote_average = movie.vote_average;
