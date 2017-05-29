@@ -34,6 +34,7 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 
 					}
 					function getUrl(path,namn) {
+						$scope.$evalAsync(function() {
 						storage.child(path).getDownloadURL().then(function(url){
 							//$scope.picarray.push([image_url + "," + $scope.userlist[user].key]);
 							//var name = $scope.userlist[user].val().realname;
@@ -46,6 +47,7 @@ movieApp.controller('friendsCtrl', function ($scope,$routeParams,Movie,$cookies)
 						console.log(error.code);
 						console.log(error.message);
 						});
+					});
 					}
 
 				$scope.getPicture = function(user) {
