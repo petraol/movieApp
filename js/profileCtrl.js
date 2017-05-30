@@ -18,27 +18,21 @@ movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$wi
 	  			$scope.name = function() {
 		  			return snapshot.val().realname;
 		  		}
-var pic;
+				var pic;
 					$scope.image = function() {
-						console.log(username);
-						console.log("Vi är i image");
 						var profileRef = firebase.database().ref("users/" + username);
 						profileRef.child("profile_picture").once('value', function(snapshot) {
 							pic = snapshot.val();
 							//var path = snapshot.fullPath;
 							//console.log(path);
 						});
-						console.log(pic);
 						var storage = firebase.storage().ref();
 						var spaceRef = storage.child('images/' + pic);
-						console.log(spaceRef);
 						var path = spaceRef.fullPath;
-						console.log(path);
 
-								storage.child(path).getDownloadURL().then(function(url){
-									var image_url = url;
-									console.log(image_url);
-									document.querySelector("#profilepic").src = image_url;
+							storage.child(path).getDownloadURL().then(function(url){
+								var image_url = url;
+								$scope.$apply($scope.src = image_url);
 
 								}).catch(function(error) {
 								console.log("error")

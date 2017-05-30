@@ -1,13 +1,17 @@
 <div class="container">
 	<ng-include src="'partials/header.html'" ng-controller="headerCtrl"></ng-include>
 
-	<div class="container2" id="friends">
+	<div class="col-sm-5">
+		<ng-include src="'partials/profile.html'" ng-controller="profileCtrl"></ng-include>
+	</div>
 
-	  	<div class="col-sm-12"><h2 style="text-align: center">Other Users</h2></div>
+	<div class="col-sm-7" id="friends">
+
+	  <h2 style="text-align: center">Other Users</h2>
 
 	  	<div class="col-sm-12" ng-repeat="user in userlist">
 			<h3><a ng-href="#!/friendsMovieList/{{userName(user)}}">{{user.val().realname}}s Movielist </a></h3></br>
 			<b>Favorite moviesnacks:<h4>{{user.val().snack}}</h4></b>
 		</div>
-	</div>
+		</div>
 </div>
