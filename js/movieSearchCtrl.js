@@ -8,11 +8,7 @@ movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
 			function(data) {
 
 				$scope.dict = {};
-			
-				//$scope.searchPosterResults = data.poster_path;
-				//$scope.searchPosterResults = data.poster_path;
-				
-				
+
 				for (poster in data.results) {
 					
 					if(data.results[poster].poster_path === null) {

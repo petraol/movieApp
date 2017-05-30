@@ -20,8 +20,7 @@ movieApp.controller('friendspageCtrl', function ($scope,$routeParams,Movie,$cook
 						var profileRef = firebase.database().ref("users/" + childSnapshot.key);
 						profileRef.child("profile_picture").once('value', function(snapshot) {
 							pic = snapshot.val();
-							//var path = snapshot.fullPath;
-							//console.log(path);
+
 						});
 						var storage = firebase.storage().ref();
 						var spaceRef = storage.child('images/' + pic);
