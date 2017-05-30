@@ -55,6 +55,7 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 
 				console.log("Nu har användaren skapats och vi byter view");
 				$window.location.assign('#!/movieSearch');
+
 				}
 				catch(err) {
 					console.log("Fel under skapandet i databasen")
