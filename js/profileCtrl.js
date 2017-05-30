@@ -1,5 +1,4 @@
 movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$window) {
-	//var userId = firebase.auth().currentUser.uid;
 		var username = Movie.getCurrentUser();
 
 		if (username == "") {
