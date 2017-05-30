@@ -1,6 +1,7 @@
 movieApp.controller('profileCtrl', function ($scope,Movie,$cookies,$location,$window) {
 		var username = Movie.getCurrentUser();
-
+		$scope.src = "";
+		
 		if (username == "") {
 			$window.location.assign('#!/oops');
 		}
