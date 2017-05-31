@@ -54,7 +54,7 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 				ref.put(image);
 
 				console.log("Nu har användaren skapats och vi byter view");
-				$window.location.assign('#!/movieSearch');
+				$window.location.assign('#!/welcome');
 
 				}
 				catch(err) {
