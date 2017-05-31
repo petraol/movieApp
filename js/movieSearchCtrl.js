@@ -38,12 +38,4 @@ movieApp.controller('movieSearchCtrl', function ($scope,Movie,$cookies) {
 		});
 	}
 
-	$scope.drag = function(event) {
-		console.log("Startar dragning");
-		thingy = [];
-		thingy.push(event.target.className);
-		thingy.push(event.target.id);
-	    event.dataTransfer.setData("Text", thingy);
-}
-
 });

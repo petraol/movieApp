@@ -77,13 +77,24 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
         snack = $scope.snack();
       }
 
-      console.log($scope.image());
-
       if (typeof image !== 'string') {
-        var ref = firebase.storage().ref('images/').child($scope.image());
+        console.log(image.size)
+
+        if (image.name == $scope.image()) {
+          console.log("samma bild, gör ingenting")
+        }
+
+        else if (image.size > 1024000) {
+          window.alert("The profile picture you tried to upload is too big (MAX 1 MB)! Try again.");
+          return;
+        }
+
+        else {
+          var ref = firebase.storage().ref('images/').child($scope.image());
           ref.delete()
         var ref = firebase.storage().ref('images/').child(image.name);
           ref.put(image)
+        }
 
           newData = {
             realname: realname,
@@ -100,6 +111,8 @@ movieApp.controller('editprofileCtrl', function ($scope,Movie,$cookies,$location
           password: $scope.password()
         }
       }
+
+      window.alert("Profile info updated");
 
       var update = {};
       update['/users/' + username] = newData;

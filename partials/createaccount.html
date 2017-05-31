@@ -18,14 +18,14 @@
 			  Favorite snack:<br>
 			  <input ng-model="snack" type="text" name="snack" value="">
 			  <br></br>
-			  Upload file for profile picture:<br>
-				<input type="file" id="image" ngf-select ng-model="image" name="file" ngf-pattern="'image/*'"
+			  Upload file for profile picture (MAX 1MB):<br>
+			<div class="col-sm-5"></div><input type="file" id="image" ngf-select ng-model="image" name="file" ngf-pattern="'image/*'"
     		ngf-accept="'image/*'">
 			  <br>
 			</form>
 
 			<div style="text-align:center;" ng-show="usernameerror">That username is already taken, sorry. Try another one.</div>
-			<div style="text-align:center;" ng-show="infoenter">You have to enter information in every field.</div>
+			<div style="text-align:center;" ng-show="infoenter">You have to enter information in every field and choose a profile picture to upload.</div>
 
 			</br></br></br>
 			<a ng-click="create(username, realname, password, snack, image)" type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#e74c3c; border-color: #c44437;"><h4>Create new account</h4></a>

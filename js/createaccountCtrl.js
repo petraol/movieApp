@@ -28,8 +28,6 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 
 				allUsers = Movie.allUsers;
 				Movie.allUsers = "";
-				console.log(username);
-				console.log(allUsers);
 
 				if (allUsers.includes(username)) {
 					console.log("Nu stötte den på ett namn som redan finns i databasen")
@@ -41,17 +39,24 @@ movieApp.controller('createaccountCtrl', function ($scope,Movie,$cookies,$locati
 				else {
 
 				try {
+					
+				if (image.size > 1024000) {
+		        	window.alert("The profile picture you tried to upload is too big (MAX 1 MB)! Try again.");
+		        	return;
+		        }
+
+		        else {
+					var ref = firebase.storage().ref('images/').child(image.name);
+					ref.put(image);
+				}
+
+
 				firebase.database().ref('users/' + username).set({
 					realname: realname,
 				  	password: password,
 				  	snack: snack,
 				  	profile_picture: image.name
 				  	});
-
-				var ref = firebase.storage().ref('images/').child(image.name);
-				console.log(image);
-				console.log(image.name);
-				ref.put(image);
 
 				console.log("Nu har användaren skapats och vi byter view");
 				$window.location.assign('#!/welcome');

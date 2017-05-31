@@ -11,7 +11,7 @@
 
 	<h5>Change your favorite snack: </h5><input type="text" class="snack" id="round" ng-model="sneck" placeholder="{{snack()}}"/>
 
-	<h5>Change your profile picture (MAX FILE SIZE: 3 MB, refresh required): </h5><input style="color: white" type="file" id="image" ngf-select ng-model="img" name="file" ngf-pattern="'image/*'"
+	<h5>Change your profile picture (MAX: 1 MB. Refresh required): </h5><input style="color: white" type="file" id="image" ngf-select ng-model="img" name="file" ngf-pattern="'image/*'"
     	ngf-accept="'image/*'">
 
 	<h3><input ng-click="edit(nem,img,sneck)" type="submit" name="edit" class="btn btn-primary" style="background-color:#e74c3c; border-color: #c44437; padding: 13px;" value="Save changes to profile"/></h3>
